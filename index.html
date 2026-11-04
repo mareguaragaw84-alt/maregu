@@ -3,24 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="_google-site-verification: google8dd2e236ccbb5c95.html" />
-    <!-- የገጹ አርዕስት (Google ላይ በትልቁ የሚታየው) -->
-<title>ማረጉ አራጋው | Maregu Aragaw - Portfolio & Health IT Specialist</title>
-
-<!-- የገጹ ማብራሪያ (ከአርዕስቱ በታች በጥቁር የሚጻፈው አጭር ማብራሪያ) -->
-<meta name="description" content="ሰላም! እኔ ማረጉ አራጋው እባላለሁ። በላሊበላ የምገኝ Full-Stack Web Developer እና Health IT Specialist ነኝ። ጥራት ያላቸው የዌብ ሲስተሞች ግንባታ እና የዴታቤዝ አስተዳደር ሥራዎችን እሰራለሁ።">
-
-<!-- ለGoogle ፍለጋ ቁልፍ ቃላት (Keywords) -->
-<meta name="keywords" content="ማረጉ አራጋው, Maregu Aragaw, Web Developer Lalibela, Health IT Ethiopia, HMIS DHIS2 Ethiopia, ዌብሳይት አሰሪ, ላሊበላ">
-
-<!-- ለGoogle ቦቶች ገጹን እንዲያነቡት መፍቀጃ -->
-<meta name="robots" content="index, follow">
-
-    <title id="page-title">ማረጉ አራጋው | Maregu Aragaw - Portfolio</title>
+    <title id="page-title">Mareg Lalibela | Portfolio</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Google Fonts: Noto Sans Ethiopic & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,55 +48,79 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .card-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        .chat-msg strong { color: #a5b4fc; }
+        .chat-msg a { color: #67e8f9; text-decoration: underline; }
+        .chat-msg ul { list-style: disc; padding-left: 1.2rem; margin: 0.3rem 0; }
+        .chat-msg br { line-height: 1.6; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-300">
 
     <!-- Header / Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-900/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/20 dark:border-slate-800/80" id="main-header">
+    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-slate-900/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/20 dark:border-slate-800/80" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo / Name -->
-                <a href="#hero" class="flex items-center gap-3 group">
+            <div class="flex items-center justify-between h-20 gap-2">
+                <a href="#hero" class="flex items-center gap-3 group flex-shrink-0">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
                         ማ
                     </div>
-                    <span class="font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors" data-am="ማረጉ አራጋው" data-en="Maregu Aragaw">ማረጉ አራጋው</span>
+                    <div class="flex flex-col hidden sm:flex">
+                        <span class="font-bold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-indigo-400 transition-colors" data-am="ማረጉ አራጋው" data-en="Mareg Lalibela">ማረጉ አራጋው</span>
+                        <span class="text-xs text-indigo-400 font-mono">Web & HIT Expert</span>
+                    </div>
                 </a>
 
+                <!-- Live Search Bar in Header -->
+                <div class="relative flex-1 max-w-xs md:max-w-sm mx-2">
+                    <div class="relative flex items-center">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-slate-400 text-sm pointer-events-none"></i>
+                        <input type="text" id="header-search-input" onkeyup="handleSearch(this.value)" placeholder="ይፈለጉ (Search skills, projects, info...)" class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-800/80 border border-slate-700/80 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                        <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 text-slate-400 hover:text-white">
+                            <i class="fa-solid fa-xmark text-xs"></i>
+                        </button>
+                    </div>
+                    <div id="search-results-dropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden z-50 max-h-80 overflow-y-auto chat-scroll">
+                        <div id="search-results-list" class="p-2 divide-y divide-slate-800"></div>
+                    </div>
+                </div>
+
                 <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                    <a href="#about" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="ስለ እኔ" data-en="About Me">ስለ እኔ</a>
-                    <a href="#education" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="ትምህርት" data-en="Education">ትምህርት</a>
-                    <a href="#experience" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="ሥራ ልምድ" data-en="Experience">ሥራ ልምድ</a>
-                    <a href="#skills" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="ክህሎቶች" data-en="Skills">ክህሎቶች</a>
-                    <a href="#projects" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="ፕሮጀክቶች" data-en="Projects">ፕሮጀክቶች</a>
-                    <a href="#contact" class="px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" data-am="አድራሻ" data-en="Contact">አድራሻ</a>
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#about" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="ስለ እኔ" data-en="About Me">ስለ እኔ</a>
+                    <a href="#education" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="ትምህርት" data-en="Education">ትምህርት</a>
+                    <a href="#experience" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="ሥራ ልምድ" data-en="Experience">ሥራ ልምድ</a>
+                    <a href="#skills" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="ክህሎቶች" data-en="Skills">ክህሎቶች</a>
+                    <a href="#projects" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="ፕሮጀክቶች" data-en="Projects">ፕሮጀክቶች</a>
+                    <a href="#contact" class="px-2.5 py-2 text-xs font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-am="አድራሻ" data-en="Contact">አድራሻ</a>
                 </nav>
 
                 <!-- Controls: Language & Theme Switcher -->
-                <div class="flex items-center gap-3">
-                    <!-- Language Toggle Button -->
-                    <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-indigo-400 border border-slate-700 hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-shrink-0">
+                    <button id="lang-toggle-btn" onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-indigo-400 border border-slate-700 hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-globe"></i>
                         <span id="lang-btn-text">EN</span>
                     </button>
-
-                    <!-- Dark / Light Theme Toggle -->
-                    <button id="theme-toggle-btn" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800 text-amber-400 hover:text-amber-300 border border-slate-700 transition-all" aria-label="Toggle Theme">
-                        <i class="fa-solid fa-sun text-lg" id="theme-icon"></i>
+                    <button id="theme-toggle-btn" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-800 text-amber-400 hover:text-amber-300 border border-slate-700 transition-all" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-sun text-base" id="theme-icon"></i>
                     </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation Menu">
-                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div class="hidden md:hidden border-t border-slate-800 bg-slate-900/95 dark:bg-slate-950/95 backdrop-blur-xl" id="mobile-menu">
+        <div class="hidden lg:hidden border-t border-slate-800 bg-slate-900/95 dark:bg-slate-950/95 backdrop-blur-xl" id="mobile-menu">
             <div class="px-4 pt-3 pb-6 space-y-2">
                 <a href="#about" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-indigo-600/20 hover:text-indigo-400" data-am="ስለ እኔ" data-en="About Me">ስለ እኔ</a>
                 <a href="#education" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-indigo-600/20 hover:text-indigo-400" data-am="ትምህርት" data-en="Education">ትምህርት</a>
@@ -128,12 +142,12 @@
                 
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span data-am="ለአዲስ እድሎችና ፕሮጀክቶች ዝግጁ ነኝ" data-en="Available for New Opportunities & Projects">ለአዲስ እድሎችና ፕሮጀክቶች ዝግጁ ነኝ</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                        <span data-am="ሰላም! እኔ" data-en="Hello, I am">ሰላም! እኔ</span> <span class="text-gradient" data-am="ማረጉ አራጋው" data-en="Maregu Aragaw">ማረጉ አራጋው</span>
+                        <span data-am="ሰላም! እኔ" data-en="Hello, I am">ሰላም! እኔ</span> <span class="text-gradient" data-am="Mareg Lalibela" data-en="Mareg Lalibela">Mareg Lalibela</span>
                     </h1>
 
                     <div class="text-lg sm:text-xl font-medium space-y-1">
@@ -151,41 +165,52 @@
                             <span data-am="ፕሮጀክቶቼን ይመልከቱ" data-en="View My Projects">ፕሮጀክቶቼን ይመልከቱ</span>
                             <i class="fa-solid fa-arrow-down text-sm"></i>
                         </a>
-                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 font-semibold text-center transition-all flex items-center justify-center gap-2">
-                            <span data-am="ያግኙኝ" data-en="Contact Me">ያግኙኝ</span>
-                            <i class="fa-solid fa-envelope text-sm"></i>
-                        </a>
+                        <button onclick="toggleAiChat()" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-indigo-500/50 bg-indigo-900/30 hover:bg-indigo-800/40 text-indigo-300 font-semibold text-center transition-all flex items-center justify-center gap-2 shadow-lg">
+                            <i class="fa-solid fa-robot text-cyan-400"></i>
+                            <span data-am="AI ረዳት (ጥያቄ ይጠይቁ)" data-en="Ask AI Assistant">AI ረዳት (ጥያቄ ይጠይቁ)</span>
+                        </button>
                     </div>
 
-                    <!-- Direct Social & Instant Contact Links -->
-                    <div class="pt-6 flex items-center justify-center lg:justify-start gap-4 text-slate-400">
-                        <span class="text-sm font-medium text-slate-500" data-am="ቀጥታ ያግኙኝ:" data-en="Direct Contact:">ቀጥታ ያግኙኝ:</span>
-                        <a href="https://t.me/Mareg_Lalibela" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-sky-500 hover:text-white flex items-center justify-center transition-all" aria-label="Telegram">
+                    <div class="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-slate-400">
+                        <span class="text-sm font-medium text-slate-500 w-full sm:w-auto text-center sm:text-left" data-am="ቀጥታ ያግኙኝ:" data-en="Direct Contact:">ቀጥታ ያግኙኝ:</span>
+                        <a href="https://t.me/Mareg_Lalibela" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-sky-500 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Telegram" title="Telegram">
                             <i class="fa-brands fa-telegram text-lg"></i>
                         </a>
-                        <a href="mailto:mareguaragaw84@gmail.com" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition-all" aria-label="Email">
+                        <a href="mailto:mareguaragaw84@gmail.com" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-red-500 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Gmail" title="Gmail">
                             <i class="fa-solid fa-envelope text-lg"></i>
                         </a>
-                        <a href="tel:+251987781317" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all" aria-label="Phone">
+                        <a href="https://wa.me/251987781317" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-emerald-500 hover:text-white flex items-center justify-center transition-all shadow" aria-label="WhatsApp" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="https://instagram.com/Mareg_Lalibela" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Instagram" title="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/Mareg_Lalibela" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow" aria-label="LinkedIn" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com/MaregLalibela" target="_blank" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-blue-700 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Facebook" title="Facebook">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="tel:+251987781317" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-900 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Phone" title="Call">
                             <i class="fa-solid fa-phone text-lg"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Profile Badge Card -->
+                <!-- Profile Badge Card with Photo -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-md">
                         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-30 blur-lg animate-pulse"></div>
                         <div class="relative rounded-2xl bg-slate-900 border border-slate-800 p-6 sm:p-8 space-y-6 shadow-2xl">
                             <div class="flex items-center gap-4">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-400 p-1 flex-shrink-0">
-                                    <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
-                                        <i class="fa-solid fa-user-check text-3xl text-indigo-400"></i>
+                                <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-400 p-1 flex-shrink-0 shadow-lg">
+                                    <div class="w-full h-full bg-slate-900 rounded-[14px] overflow-hidden flex items-center justify-center relative group">
+                                        <img src="IMG_5208.JPG" alt="Mareg Lalibela" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='IMG_5208_2.JPG';">
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-white" data-am="ማረጉ አራጋው" data-en="Maregu Aragaw">ማረጉ አራጋው</h3>
-                                    <p class="text-sm text-slate-400" data-am="ላሊበላ / ኢትዮጵያ" data-en="Lalibela, Ethiopia">ላሊበላ / ኢትዮጵያ</p>
+                                    <h3 class="text-xl font-bold text-white" data-am="Mareg Lalibela" data-en="Mareg Lalibela">Mareg Lalibela</h3>
+                                    <p class="text-xs text-slate-400" data-am="ማረጉ አራጋው | ላሊበላ፣ ኢትዮጵያ" data-en="Maregu Aragaw | Lalibela, Ethiopia">ማረጉ አራጋው | ላሊበላ፣ ኢትዮጵያ</p>
                                     <div class="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                                          data-am="Level 5 Web Admin & HIT" data-en="Level 5 Web Admin & HIT">
                                         Level 5 Web Admin & HIT
@@ -237,9 +262,9 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 <div class="lg:col-span-6 space-y-6 text-slate-300 leading-relaxed text-base sm:text-lg">
-                    <p data-am="እኔ ማረጉ አራጋው እባላለሁ። በኢንፎርሜሽን ቴክኖሎጂ፣ በዌብ ልማት (Web Development)፣ በጤና መረጃ ቴክኖሎጂ (HIT) እና በዴታቤዝ አስተዳደር ዘርፍ የዳበረ እውቀትና የሥራ ልምድ ያለኝ ሙያተኛ ነኝ።"
-                       data-en="My name is Maregu Aragaw. I am a dedicated Information Technology specialist, Full-Stack Web Developer, Health Information Technology (HIT) expert, and Database Administrator.">
-                        እኔ ማረጉ አራጋው እባላለሁ። በኢንፎርሜሽን ቴክኖሎጂ፣ በዌብ ልማት (Web Development)፣ በጤና መረጃ ቴክኖሎጂ (HIT) እና በዴታቤዝ አስተዳደር ዘርፍ የዳበረ እውቀትና የሥራ ልምድ ያለኝ ሙያተኛ ነኝ።
+                    <p data-am="እኔ ማረጉ አራጋው (Mareg Lalibela) እባላለሁ። በኢንፎርሜሽን ቴክኖሎጂ፣ በዌብ ልማት (Web Development)፣ በጤና መረጃ ቴክኖሎጂ (HIT) እና በዴታቤዝ አስተዳደር ዘርፍ የዳበረ እውቀትና የሥራ ልምድ ያለኝ ሙያተኛ ነኝ።"
+                       data-en="My name is Maregu Aragaw (Mareg Lalibela). I am a dedicated Information Technology specialist, Full-Stack Web Developer, Health Information Technology (HIT) expert, and Database Administrator.">
+                        እኔ ማረጉ አራጋው (Mareg Lalibela) እባላለሁ። በኢንፎርሜሽን ቴክኖሎጂ፣ በዌብ ልማት (Web Development)፣ በጤና መረጃ ቴክኖሎጂ (HIT) እና በዴታቤዝ አስተዳደር ዘርፍ የዳበረ እውቀትና የሥራ ልምድ ያለኝ ሙያተኛ ነኝ።
                     </p>
                     <p data-am="በላሊበላ ፖሊ ቴክኒክ ኮሌጅ በዌብ ዲቨሎፕመንትና ዴታቤዝ አስተዳደር በደረጃ 5 (Level V) እንዲሁም በጤና መረጃ ቴክኖሎጂ (HIT) የሰለጠንኩ ሲሆን፣ የጤና መረጃዎችን በዘመናዊ መልኩ ማደራጀት (DHIS2 & HMIS)፣ የዌብ አፕሊኬሽኖችን መገንባት እና የቢሮ አውቶሜሽን ሲስተሞችን በማስተዳደር ላይ የነቃ ተሳትፎ አድርጌአለሁ።"
                        data-en="Graduated from St. Lalibela Polytechnic College with Level V certification in Web Development & Database Administration, alongside Health Information Technology (HIT). Experienced in managing health data tools (DHIS2/HMIS), web applications, and system automation.">
@@ -252,7 +277,7 @@
                 </div>
 
                 <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all card-glow">
                         <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
@@ -260,7 +285,7 @@
                         <p class="text-sm text-slate-400" data-am="Web Dev & DB Admin (Level 5) + Health Information Tech" data-en="Web Dev & DB Admin (Level 5) + Health Info Tech">Web Dev & DB Admin (Level 5) + Health Information Tech</p>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all card-glow">
                         <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-briefcase"></i>
                         </div>
@@ -268,7 +293,7 @@
                         <p class="text-sm text-slate-400" data-am="በHIT/HMIS፣ በፍርድ ቤት አስተዳደር እና በሶፍትዌር ፕሮጀክቶች" data-en="In HIT/HMIS, Court HR Admin, and Web Software Projects">በHIT/HMIS፣ በፍርድ ቤት አስተዳደር እና በሶፍትዌር ፕሮጀክቶች</p>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all card-glow">
                         <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
@@ -276,7 +301,7 @@
                         <a href="mailto:mareguaragaw84@gmail.com" class="text-sm text-indigo-400 hover:underline break-all">mareguaragaw84@gmail.com</a>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/40 transition-all card-glow">
                         <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
                             <i class="fa-solid fa-phone"></i>
                         </div>
@@ -302,7 +327,7 @@
                 <div class="relative pl-8 sm:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-4 border-slate-950"></div>
                     <div class="hidden sm:block absolute -left-32 top-0 text-sm font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
-                        2015 - 2016
+                        2015 - 2018
                     </div>
                     
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500/40 transition-all space-y-2">
@@ -320,7 +345,7 @@
                 <div class="relative pl-8 sm:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-950"></div>
                     <div class="hidden sm:block absolute -left-32 top-0 text-sm font-semibold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
-                        2012 - 2014
+                        2011 - 2014
                     </div>
                     
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-cyan-500/40 transition-all space-y-2">
@@ -338,7 +363,7 @@
                 <div class="relative pl-8 sm:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
                     <div class="hidden sm:block absolute -left-32 top-0 text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
-                        2010 - 2011
+                        2012 - 2014
                     </div>
                     
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-2">
@@ -351,7 +376,7 @@
                 <div class="relative pl-8 sm:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
                     <div class="hidden sm:block absolute -left-32 top-0 text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
-                        2008 - 2009
+                        2009 - 2010
                     </div>
                     
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-2">
@@ -364,7 +389,7 @@
                 <div class="relative pl-8 sm:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
                     <div class="hidden sm:block absolute -left-32 top-0 text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
-                        2000 - 2007
+                        2000 - 2008
                     </div>
                     
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-2">
@@ -439,7 +464,7 @@
                                 ዌብ እና ሲስተም
                             </span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Web & Software Projects Developer</h3>
+                        <h3 class="text-xl font-bold text-white">Web & Software Developer</h3>
                         <p class="text-sm font-medium text-slate-400" data-am="Freelance & Academic Projects" data-en="Freelance & Academic Projects">Freelance & Academic Projects</p>
                         <ul class="text-slate-300 text-sm space-y-2 pt-2 list-disc list-inside">
                             <li data-am="ለተለያዩ ተቋማትና ፕሮጀክቶች የዌብሳይትና የሲስተም ልማት ሥራዎች።" data-en="Developing websites and database applications for clients.">ለተለያዩ ተቋማትና ፕሮጀክቶች የዌብሳይትና የሲስተም ልማት ሥራዎች።</li>
@@ -464,7 +489,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Web Dev -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                     <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
                         <i class="fa-solid fa-code text-2xl text-indigo-400"></i>
@@ -514,7 +538,6 @@
                     </div>
                 </div>
 
-                <!-- Health IT -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                     <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
                         <i class="fa-solid fa-heart-pulse text-2xl text-cyan-400"></i>
@@ -545,7 +568,7 @@
                         <div>
                             <div class="flex justify-between text-sm font-medium mb-1">
                                 <span class="text-slate-200">Medical Records & EMR</span>
-                                <span class="text-cyan-400">86%</span>
+                                <span class="text-cyan-400">98%</span>
                             </div>
                             <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
                                 <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-2.5 rounded-full" style="width: 86%"></div>
@@ -555,7 +578,7 @@
                         <div>
                             <div class="flex justify-between text-sm font-medium mb-1">
                                 <span class="text-slate-200">Advanced MS Excel Data Analysis</span>
-                                <span class="text-cyan-400">90%</span>
+                                <span class="text-cyan-400">98%</span>
                             </div>
                             <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
                                 <div class="bg-gradient-to-r from-cyan-500 to-indigo-500 h-2.5 rounded-full" style="width: 90%"></div>
@@ -564,7 +587,6 @@
                     </div>
                 </div>
 
-                <!-- Design Tools -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                     <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
                         <i class="fa-solid fa-paintbrush text-2xl text-indigo-400"></i>
@@ -580,8 +602,8 @@
 
                         <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center space-y-1">
                             <i class="fa-solid fa-pen-nib text-2xl text-amber-400 mb-1"></i>
-                            <h4 class="text-sm font-bold text-white">Illustrator</h4>
-                            <p class="text-xs text-slate-400">Vector Graphics</p>
+                            <h4 class="text-sm font-bold text-white">Illustrator & Logo Design</h4>
+                            <p class="text-xs text-slate-400">Vector Graphics & Branding</p>
                         </div>
 
                         <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center space-y-1">
@@ -598,19 +620,18 @@
                     </div>
                 </div>
 
-                <!-- Networking & IT -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                     <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
                         <i class="fa-solid fa-network-wired text-2xl text-cyan-400"></i>
-                        <h3 class="text-xl font-bold text-white">Hardware & Networking</h3>
+                        <h3 class="text-xl font-bold text-white">Hardware & Software Support</h3>
                     </div>
 
                     <div class="space-y-3 text-slate-300 text-sm">
                         <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-800/40">
                             <i class="fa-solid fa-screwdriver-wrench text-indigo-400 mt-1"></i>
                             <div>
-                                <strong class="text-white block" data-am="የኮምፒውተርና ፕሪንተር ጥገና" data-en="Hardware Maintenance">የኮምፒውተርና ፕሪንተር ጥገና</strong>
-                                <span data-am="የኮምፒውተሮች፣ ፕሪንተሮችና የቢሮ መሣሪያዎች ጥገናና ክትትል።" data-en="PC repair, diagnostic troubleshooting, and printer maintenance.">የኮምፒውተሮች፣ ፕሪንተሮችና የቢሮ መሣሪያዎች ጥገናና ክትትል።</span>
+                                <strong class="text-white block" data-am="የኮምፒውተርና ፕሪንተር ጥገና እና ሶፍትዌር መጫን" data-en="Software Installation & Repair">የኮምፒውተርና ፕሪንተር ጥገና እና ሶፍትዌር መጫን</strong>
+                                <span data-am="ሶፍትዌሮችን መጫን፣ የኮምፒውተሮች፣ ፕሪንተሮችና የቢሮ መሣሪያዎች ጥገናና ክትትል።" data-en="Software installation, PC repair, diagnostic troubleshooting, and printer maintenance.">ሶፍትዌሮችን መጫን፣ የኮምፒውተሮች፣ ፕሪንተሮችና የቢሮ መሣሪያዎች ጥገናና ክትትል።</span>
                             </div>
                         </div>
 
@@ -724,9 +745,9 @@
 
                         <div class="p-6 space-y-4">
                             <p class="text-slate-400 text-sm leading-relaxed"
-                               data-am="ለጀማሪዎችና መካከለኛ ሰልጣኞች የኮምፒውተር መሠረቶችን፣ የኢንተርኔት እና የሶፍትዌር አጠቃቀምን በአማርኛና በፎቶ የሚያስተምር የመረጃ ፖርታል::"
+                               data-am="ለጀማሪዎችና መካከለኛ ሰልጣኞች የኮምፒውተር መሠረቶችን፣ የኢንተርኔት እና የሶፍትዌር አጠቃቀምን በአማርኛና በፎቶ የሚያስተምር የመረጃ ፖርታል።"
                                data-en="An online portal delivering basic computer skills, office automation guides, and software tutorials in Amharic and English.">
-                                ለጀማሪዎችና መካከለኛ ሰልጣኞች የኮምፒውተር መሠረቶችን፣ የኢንተርኔት እና የሶፍትዌር አጠቃቀምን በአማርኛና በፎቶ የሚያስተምር የመረጃ ፖርታል::
+                                ለጀማሪዎችና መካከለኛ ሰልጣኞች የኮምፒውተር መሠረቶችን፣ የኢንተርኔት እና የሶፍትዌር አጠቃቀምን በአማርኛና በፎቶ የሚያስተምር የመረጃ ፖርታል።
                             </p>
                             <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
                                 <span class="px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700">JavaScript</span>
@@ -753,60 +774,85 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <h2 class="text-indigo-400 font-semibold text-sm tracking-wider uppercase" data-am="አድራሻ እና መልዕክት" data-en="CONTACT ME">አድራሻ እና መልዕክት</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold" data-am="እኔን ለማግኘት ወይም ለመልዕክት" data-en="Get in Touch directly via Email, Phone, or Telegram">እኔን ለማግኘት ወይም ለመልዕክት</p>
+                <p class="text-3xl sm:text-4xl font-extrabold" data-am="እኔን ለማግኘት ወይም ለመልዕክት" data-en="Get in Touch directly via Social Media, Email, or Phone">እኔን ለማግኘት ወይም ለመልዕክት</p>
                 <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 
-                <!-- Direct Contact Cards -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                         <h3 class="text-xl font-bold text-white" data-am="የግንኙነት አድራሻዎች" data-en="Direct Contact Info">የግንኙነት አድራሻዎች</h3>
                         <p class="text-slate-400 text-sm leading-relaxed"
                            data-am="ለአዳዲስ የሥራ ዕድሎች፣ ለዌብሳይትና ሲስተም ልማት ፕሮጀክቶች ወይም የቴክኒክ ድጋፍ ጥያቄዎች በታች በተጠቀሱት አድራሻዎች ልታገኙኝ ትችላላችሁ።"
-                           data-en="Feel free to reach out directly via Gmail, Phone call, or Telegram message for projects or collaborations.">
+                           data-en="Feel free to reach out directly via Social Media, Email, or Phone call for projects or collaborations.">
                             ለአዳዲስ የሥራ ዕድሎች፣ ለዌብሳይትና ሲስተም ልማት ፕሮጀክቶች ወይም የቴክኒክ ድጋፍ ጥያቄዎች በታች በተጠቀሱት አድራሻዎች ልታገኙኝ ትችላላችሁ።
                         </p>
 
-                        <div class="space-y-4 pt-2">
-                            <!-- Email -->
-                            <a href="mailto:mareguaragaw84@gmail.com" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/20 border border-slate-700/60 hover:border-indigo-500/50 transition-all group">
-                                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <div class="overflow-hidden">
-                                    <span class="text-xs text-slate-400 block" data-am="ኢሜይል አድራሻ (Gmail)" data-en="Gmail Address">ኢሜይል አድራሻ (Gmail)</span>
-                                    <span class="text-white font-medium text-sm sm:text-base break-all">mareguaragaw84@gmail.com</span>
-                                </div>
-                            </a>
-
-                            <!-- Phone -->
-                            <a href="tel:+251987781317" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-emerald-600/20 border border-slate-700/60 hover:border-emerald-500/50 transition-all group">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs text-slate-400 block" data-am="ስልክ ቁጥር" data-en="Phone Number">ስልክ ቁጥር</span>
-                                    <span class="text-white font-medium text-sm sm:text-base">0987781317</span>
-                                </div>
-                            </a>
-
-                            <!-- Telegram -->
+                        <div class="space-y-3 pt-2">
                             <a href="https://t.me/Mareg_Lalibela" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-sky-600/20 border border-slate-700/60 hover:border-sky-500/50 transition-all group">
-                                <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                                <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all">
                                     <i class="fa-brands fa-telegram"></i>
                                 </div>
                                 <div>
                                     <span class="text-xs text-slate-400 block" data-am="ቴሌግራም አድራሻ" data-en="Telegram Account">ቴሌግራም አድራሻ</span>
-                                    <span class="text-white font-medium text-sm sm:text-base">Mareg Lalibela (@Mareg_Lalibela)</span>
+                                    <span class="text-white font-medium text-sm">Mareg Lalibela (@Mareg_Lalibela)</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:mareguaragaw84@gmail.com" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-red-600/20 border border-slate-700/60 hover:border-red-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-red-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-xs text-slate-400 block" data-am="ኢሜይል አድራሻ (Gmail)" data-en="Gmail Address">ኢሜይል አድራሻ (Gmail)</span>
+                                    <span class="text-white font-medium text-sm break-all">mareguaragaw84@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/251987781317" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-emerald-600/20 border border-slate-700/60 hover:border-emerald-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block" data-am="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+                                    <span class="text-white font-medium text-sm">+251987781317</span>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com/Mareg_Lalibela" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-pink-600/20 border border-slate-700/60 hover:border-pink-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block" data-am="Instagram" data-en="Instagram">Instagram</span>
+                                    <span class="text-white font-medium text-sm">@Mareg_Lalibela</span>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/Mareg_Lalibela" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-blue-600/20 border border-slate-700/60 hover:border-blue-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block" data-am="LinkedIn" data-en="LinkedIn">LinkedIn</span>
+                                    <span class="text-white font-medium text-sm">Mareg Lalibela</span>
+                                </div>
+                            </a>
+
+                            <a href="https://facebook.com/MaregLalibela" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 hover:bg-blue-700/20 border border-slate-700/60 hover:border-blue-600/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-blue-600/10 text-blue-500 flex items-center justify-center text-lg flex-shrink-0 group-hover:bg-blue-700 group-hover:text-white transition-all">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block" data-am="Facebook" data-en="Facebook">Facebook</span>
+                                    <span class="text-white font-medium text-sm">Mareg Lalibela</span>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Direct Email Sending Form -->
                 <div class="lg:col-span-7">
                     <form id="contact-form" action="https://formspree.io/f/mareguaragaw84@gmail.com" method="POST" onsubmit="handleFormSubmit(event)" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
                         <h3 class="text-xl font-bold text-white mb-2" data-am="ቀጥታ መልዕክት ይላኩ" data-en="Send Me a Direct Message">ቀጥታ መልዕክት ይላኩ</h3>
@@ -822,7 +868,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label for="name" class="text-sm font-medium text-slate-300" data-am="ሙሉ ስም *" data-en="Full Name *">ሙሉ ስም *</label>
-                                <input type="text" id="name" name="name" required placeholder="ማረጉ አራጋው" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm">
+                                <input type="text" id="name" name="name" required placeholder="Mareg Lalibela" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm">
                             </div>
 
                             <div class="space-y-2">
@@ -858,16 +904,118 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <!-- AI Chat Widget -->
+    <div id="ai-chat-widget" class="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+        
+        <button onclick="toggleAiChat()" id="ai-toggle-btn" class="w-14 h-14 rounded-full bg-gradient-to-tr from-indigo-600 to-cyan-500 hover:scale-110 text-white shadow-2xl flex items-center justify-center transition-all duration-300 group relative">
+            <i class="fa-solid fa-robot text-2xl group-hover:rotate-12 transition-transform"></i>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-slate-950 rounded-full animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-slate-950 rounded-full"></span>
+        </button>
+
+        <div id="ai-chat-box" class="hidden mt-3 w-[92vw] sm:w-[480px] h-[600px] max-h-[85vh] bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl transition-all duration-300">
+            <div class="bg-gradient-to-r from-indigo-900/90 to-slate-900 p-4 border-b border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">ማ</div>
-                    <span class="font-bold text-slate-200" data-am="ማረጉ አራጋው (Maregu Aragaw)" data-en="Maregu Aragaw (ማረጉ አራጋው)">ማረጉ አራጋው (Maregu Aragaw)</span>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center text-white text-lg shadow-md">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                            <span>Mareg AI Assistant</span>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">Online</span>
+                        </h4>
+                        <p class="text-xs text-slate-400" data-am="ማናቸውንም ጥያቄ፣ ትርጉምና ማብራሪያ ይጠይቁ" data-en="Ask any question, definition, or explanation">ማናቸውንም ጥያቄ፣ ትርጉምና ማብራሪያ ይጠይቁ</p>
+                    </div>
                 </div>
+                <button onclick="toggleAiChat()" class="text-slate-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 chat-scroll text-sm">
+                <div class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="chat-msg bg-slate-800/90 text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-700/60 leading-relaxed text-xs sm:text-sm">
+                        👋 ሰላም! እኔ የማረጉ አራጋው (Mareg Lalibela) AI ረዳት ነኝ። 
+                        <br><br>
+                        <strong>ስለሚከተሉት ርዕሶች ጥያቄ መጠየቅ ይችላሉ፦</strong>
+                        <ul>
+                            <li>💻 Computer, Software, Hardware, Operating System</li>
+                            <li>🗄️ Data, Information, Database, Programming</li>
+                            <li>🌍 Tourism, Places, Geography, GPS, St. Lalibela</li>
+                            <li>🔬 Science, Mathematics, Physics, Chemistry</li>
+                            <li>📖 English, Civics, Drawing</li>
+                            <li>🤖 AI (Artificial Intelligence)</li>
+                            <li>🏥 Health IT, HIT, HMIS, DHIS2</li>
+                            <li>👤 About Mareg Lalibela & Services</li>
+                        </ul>
+                        <br>
+                        <strong>እንዲሁም በጠየቁት ቋንቋ (አማርኛ ወይም English) መልስ ይሰጣል።</strong>
+                        <br><br>
+                        ለማስራት በ <strong>0987781317</strong> ወይም በ Gmail, Telegram, WhatsApp ማናገር ይቻላል!
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 bg-slate-950/60 border-t border-slate-800/60 flex flex-wrap gap-1.5 text-xs">
+                <button onclick="sendQuickPrompt('ማረጉ ማን ነው?')" class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 hover:bg-indigo-600 hover:text-white transition-all">ማረጉ ማን ነው?</button>
+                <button onclick="sendQuickPrompt('ስለ ኮምፒውተር ንገረኝ')" class="px-2.5 py-1 rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 hover:bg-cyan-600 hover:text-white transition-all">ኮምፒውተር</button>
+                <button onclick="sendQuickPrompt('What is Database?')" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 hover:bg-emerald-600 hover:text-white transition-all">Database</button>
+                <button onclick="sendQuickPrompt('ስለ ላሊበላ ንገረኝ')" class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20 hover:bg-amber-600 hover:text-white transition-all">ላሊበላ</button>
+                <button onclick="sendQuickPrompt('What is AI?')" class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-300 border border-purple-500/20 hover:bg-purple-600 hover:text-white transition-all">AI</button>
+                <button onclick="sendQuickPrompt('እንዴት ማግኘት እችላለሁ?')" class="px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-300 border border-sky-500/20 hover:bg-sky-600 hover:text-white transition-all">አድራሻ</button>
+            </div>
+
+            <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2">
+                <input type="text" id="chat-input" onkeydown="if(event.key==='Enter') sendMessage()" placeholder="ጥያቄዎን እዚህ ይጻፉ... (Ask anything...)" class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-indigo-500">
+                <button onclick="sendMessage()" class="p-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-md">
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">ማ</div>
+                        <span class="font-bold text-lg text-slate-200" data-am="Mareg Lalibela (ማረጉ አራጋው)" data-en="Mareg Lalibela (Maregu Aragaw)">Mareg Lalibela (ማረጉ አራጋው)</span>
+                    </div>
+                    <p class="text-xs text-slate-400" data-am="Full-Stack Web Developer & Health IT Specialist" data-en="Full-Stack Web Developer & Health IT Specialist">Full-Stack Web Developer & Health IT Specialist</p>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="https://t.me/Mareg_Lalibela" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-sky-500 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="mailto:mareguaragaw84@gmail.com" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-red-500 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="Gmail">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/251987781317" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-emerald-500 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/Mareg_Lalibela" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-pink-600 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/Mareg_Lalibela" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://facebook.com/MaregLalibela" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:bg-blue-700 hover:text-white flex items-center justify-center text-slate-400 transition-all" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-slate-800/80">
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                 <p class="text-xs text-slate-500">
-                    &copy; <span id="current-year"></span> <span data-am="ማረጉ አራጋው። መብቱ በሕግ የተጠበቀ ነው።" data-en="Maregu Aragaw. All rights reserved.">ማረጉ አራጋው። መብቱ በሕግ የተጠበቀ ነው።</span>
+                    &copy; <span id="current-year"></span> <span data-am="Mareg Lalibela. መብቱ በሕግ የተጠበቀ ነው።" data-en="Mareg Lalibela. All rights reserved.">Mareg Lalibela. መብቱ በሕግ የተጠበቀ ነው።</span>
                 </p>
                 <div>
                     <a href="#hero" class="text-xs text-slate-400 hover:text-indigo-400 transition-colors" data-am="ወደ ላይ ተመለስ ↑" data-en="Back to top ↑">ወደ ላይ ተመለስ ↑</a>
@@ -878,61 +1026,121 @@
 
     <!-- Project Modals -->
     <div id="hotel-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('hotel-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
+            
             <div class="flex items-center gap-3 text-indigo-400">
                 <i class="fa-solid fa-hotel text-2xl"></i>
                 <h3 class="text-2xl font-bold text-white" data-am="የሆቴል እና ቱሪዝም ድረ-ገጽ" data-en="Hotel & Tourism Portal">የሆቴል እና ቱሪዝም ድረ-ገጽ</h3>
             </div>
+            
             <p class="text-slate-300 text-sm leading-relaxed"
                data-am="በላሊበላ የሚገኙ ሆቴሎችን፣ የቱሪዝም መረጃዎችን እና የኦንላይን ቦታ ማስያዣ (Booking) የሚያቀናጅ ሲስተም።"
                data-en="A comprehensive online reservation system connecting tourists with hotels and tour services in Lalibela.">
                 በላሊበላ የሚገኙ ሆቴሎችን፣ የቱሪዝም መረጃዎችን እና የኦንላይን ቦታ ማስያዣ (Booking) የሚያቀናጅ ሲስተም።
             </p>
-            <div class="pt-4 flex justify-end">
-                <button onclick="closeModal('hotel-modal')" class="px-6 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 text-sm" data-am="ዝጋ" data-en="Close">ዝጋ</button>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span data-am="የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):" data-en="Live Project Preview:">የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):</span>
+                    <a href="https://mareguaragaw84-alt.github.io/hotel/" target="_blank" class="text-indigo-400 hover:underline flex items-center gap-1">
+                        <span data-am="በአዲስ ታብ ክፈት" data-en="Open in New Tab">በአዲስ ታብ ክፈት</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="w-full h-80 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-inner">
+                    <iframe src="https://mareguaragaw84-alt.github.io/hotel/" class="w-full h-full border-0" title="Hotel & Tourism Portal Preview"></iframe>
+                </div>
+            </div>
+
+            <div class="pt-4 flex items-center justify-between border-t border-slate-800">
+                <a href="https://mareguaragaw84-alt.github.io/hotel/" target="_blank" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i>
+                    <span data-am="ወደ ዌብሳይት ሂድ" data-en="Visit Website">ወደ ዌብሳይት ሂድ</span>
+                </a>
+                <button onclick="closeModal('hotel-modal')" class="px-6 py-2.5 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 font-medium text-sm transition-all" data-am="ዝጋ" data-en="Close">ዝጋ</button>
             </div>
         </div>
     </div>
 
     <div id="school-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('school-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
+
             <div class="flex items-center gap-3 text-cyan-400">
                 <i class="fa-solid fa-school text-2xl"></i>
                 <h3 class="text-2xl font-bold text-white" data-am="የትምህርት ቤት ማኔጅመንት ሲስተም" data-en="School Management System">የትምህርት ቤት ማኔጅመንት ሲስተም</h3>
             </div>
+
             <p class="text-slate-300 text-sm leading-relaxed"
                data-am="የተማሪዎች ምዝገባን፣ የፈተና ውጤትን እና ሪፖርቶችን ለማደራጀት የተሰራ አውቶሜትድ ሲስተም።"
                data-en="Automated academic portal for student grading, registration, and report generation.">
                 የተማሪዎች ምዝገባን፣ የፈተና ውጤትን እና ሪፖርቶችን ለማደራጀት የተሰራ አውቶሜትድ ሲስተም።
             </p>
-            <div class="pt-4 flex justify-end">
-                <button onclick="closeModal('school-modal')" class="px-6 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 text-sm" data-am="ዝጋ" data-en="Close">ዝጋ</button>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span data-am="የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):" data-en="Live Project Preview:">የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):</span>
+                    <a href="https://mareguaragaw84-alt.github.io/education/ target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
+                        <span data-am="በአዲስ ታብ ክፈት" data-en="Open in New Tab">በአዲስ ታብ ክፈት</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="w-full h-80 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-inner">
+                    <iframe src="https://mareguaragaw84-alt.github.io/education/" class="w-full h-full border-0" title="School Management System Preview"></iframe>
+                </div>
+            </div>
+
+            <div class="pt-4 flex items-center justify-between border-t border-slate-800">
+                <a href="https://mareguaragaw84-alt.github.io/education/" target="_blank" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-sm transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i>
+                    <span data-am="ወደ ዌብሳይት ሂድ" data-en="Visit Website">ወደ ዌብሳይት ሂድ</span>
+                </a>
+                <button onclick="closeModal('school-modal')" class="px-6 py-2.5 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 font-medium text-sm transition-all" data-am="ዝጋ" data-en="Close">ዝጋ</button>
             </div>
         </div>
     </div>
 
     <div id="training-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('training-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
+
             <div class="flex items-center gap-3 text-indigo-400">
                 <i class="fa-solid fa-laptop-code text-2xl"></i>
                 <h3 class="text-2xl font-bold text-white" data-am="የኮምፒውተር ሥልጠና ፖርታል" data-en="IT Training Portal">የኮምፒውተር ሥልጠና ፖርታል</h3>
             </div>
+
             <p class="text-slate-300 text-sm leading-relaxed"
-               data-am="የመሠረታዊ ኮምፒውተር እውቀትና የሶፍትዌር አጠቃቀምን በአማርኛ እና እንግሊዝኛ የሚያስተምር ፖርታል::"
+               data-am="የመሠረታዊ ኮምፒውተር እውቀትና የሶፍትዌር አጠቃቀምን በአማርኛ እና እንግሊዝኛ የሚያስተምር ፖርታል።"
                data-en="E-learning web application providing computer skills tutorials in Amharic & English.">
-                የመሠረታዊ ኮምፒውተር እውቀትና የሶፍትዌር አጠቃቀምን በአማርኛ እና እንግሊዝኛ የሚያስተምር ፖርታል::
+                የመሠረታዊ ኮምፒውተር እውቀትና የሶፍትዌር አጠቃቀምን በአማርኛ እና እንግሊዝኛ የሚያስተምር ፖርታል።
             </p>
-            <div class="pt-4 flex justify-end">
-                <button onclick="closeModal('training-modal')" class="px-6 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 text-sm" data-am="ዝጋ" data-en="Close">ዝጋ</button>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span data-am="የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):" data-en="Live Project Preview:">የፕሮጀክት ድረ-ገጽ እይታ (Live Preview):</span>
+                    <a href="https://mareguaragaw84-alt.github.io/MareguIT/" target="_blank" class="text-indigo-400 hover:underline flex items-center gap-1">
+                        <span data-am="በአዲስ ታብ ክፈት" data-en="Open in New Tab">በአዲስ ታብ ክፈት</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="w-full h-80 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-inner">
+                    <iframe src="https://mareguaragaw84-alt.github.io/MareguIT/" class="w-full h-full border-0" title="IT Training Portal Preview"></iframe>
+                </div>
+            </div>
+
+            <div class="pt-4 flex items-center justify-between border-t border-slate-800">
+                <a href="https://mareguaragaw84-alt.github.io/MareguIT/" target="_blank" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i>
+                    <span data-am="ወደ ዌብሳይት ሂድ" data-en="Visit Website">ወደ ዌብሳይት ሂድ</span>
+                </a>
+                <button onclick="closeModal('training-modal')" class="px-6 py-2.5 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 font-medium text-sm transition-all" data-am="ዝጋ" data-en="Close">ዝጋ</button>
             </div>
         </div>
     </div>
@@ -941,20 +1149,16 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // 1. Language Toggle Logic (Amharic / English)
-        let currentLang = 'am'; // default language Amharic
+        // 1. Language Toggle Logic
+        let currentLang = 'am';
 
         function toggleLanguage() {
             currentLang = (currentLang === 'am') ? 'en' : 'am';
             const langBtnText = document.getElementById('lang-btn-text');
             langBtnText.textContent = (currentLang === 'am') ? 'EN' : 'አማርኛ';
 
-            // Change Page Title
-            document.getElementById('page-title').textContent = (currentLang === 'am') 
-                ? 'ማረጉ አራጋው | Maregu Aragaw - Portfolio' 
-                : 'Maregu Aragaw | Portfolio';
+            document.getElementById('page-title').textContent = 'Mareg Lalibela | Portfolio';
 
-            // Translate all elements with data-am and data-en attributes
             document.querySelectorAll('[data-am][data-en]').forEach(el => {
                 const text = el.getAttribute(`data-${currentLang}`);
                 if (text) {
@@ -963,7 +1167,7 @@
             });
         }
 
-        // 2. Theme Toggle Logic (Dark / Light)
+        // 2. Theme Toggle Logic
         let isDark = true;
         function toggleTheme() {
             isDark = !isDark;
@@ -972,13 +1176,11 @@
 
             if (isDark) {
                 html.classList.add('dark');
-                html.classList.remove('light');
                 document.body.classList.replace('bg-slate-50', 'bg-slate-950');
                 document.body.classList.replace('text-slate-900', 'text-slate-100');
                 icon.classList.replace('fa-moon', 'fa-sun');
             } else {
                 html.classList.remove('dark');
-                html.classList.add('light');
                 document.body.classList.replace('bg-slate-950', 'bg-slate-50');
                 document.body.classList.replace('text-slate-100', 'text-slate-900');
                 icon.classList.replace('fa-sun', 'fa-moon');
@@ -1008,7 +1210,6 @@
 
         // Form Submit Handler
         function handleFormSubmit(event) {
-            // Display feedback message
             const alertBox = document.getElementById('form-alert');
             alertBox.classList.remove('hidden');
 
@@ -1026,6 +1227,990 @@
         function closeModal(id) {
             document.getElementById(id).classList.add('hidden');
             document.body.style.overflow = 'auto';
+        }
+
+        // 3. SEARCH BAR FUNCTIONALITY
+        const searchItems = [
+            { name: "ስለ ማረጉ አራጋው (About Mareg)", type: "Section", link: "#about", desc: "Full-Stack Web Developer & HIT Specialist" },
+            { name: "Web Development & Database Administration (Level 5)", type: "Education", link: "#education", desc: "ቅድስት ላሊበላ ፖሊ ቴክኒክ ኮሌጅ" },
+            { name: "Health Information Technology (HIT)", type: "Education", link: "#education", desc: "HMIS, DHIS2, Medical Records" },
+            { name: "የሆቴል እና ቱሪዝም ድረ-ገጽ (Hotel & Tourism Website)", type: "Project", link: "#projects", desc: "PHP, MySQL, Booking System" },
+            { name: "የትምህርት ቤት ማኔጅመንት ሲስተም (School System)", type: "Project", link: "#projects", desc: "Bilingual student portal" },
+            { name: "የኮምፒውተር ሥልጠና እና ቲዩቶሪያል ድረ-ገጽ", type: "Project", link: "#projects", desc: "IT Training & E-Learning Portal" },
+            { name: "Logo መስራት እና Graphic Design", type: "Skill", link: "#skills", desc: "Illustrator, Photoshop, Canva Pro" },
+            { name: "Software መጫን እና የኮምፒውተር ጥገና", type: "Skill", link: "#skills", desc: "Software Installation & Hardware Maintenance" },
+            { name: "የኤሌክትሮኒክ የጤና መዝገብ (EHR / HMIS)", type: "Experience", link: "#experience", desc: "የህሙማን ታሪክ፣ ላብራቶሪ፣ ሪፖርቶች" },
+            { name: "ስልክ ቁጥር 0987781317 (Direct Call)", type: "Contact", link: "#contact", desc: "Phone, WhatsApp, Telegram" },
+            { name: "ኢሜይል (mareguaragaw84@gmail.com)", type: "Contact", link: "#contact", desc: "Gmail direct inquiry" }
+        ];
+
+        function handleSearch(query) {
+            const dropdown = document.getElementById('search-results-dropdown');
+            const list = document.getElementById('search-results-list');
+            const clearBtn = document.getElementById('clear-search-btn');
+
+            const trimmed = query.trim().toLowerCase();
+
+            if (!trimmed) {
+                dropdown.classList.add('hidden');
+                clearBtn.classList.add('hidden');
+                return;
+            }
+
+            clearBtn.classList.remove('hidden');
+
+            const filtered = searchItems.filter(item => 
+                item.name.toLowerCase().includes(trimmed) || 
+                item.desc.toLowerCase().includes(trimmed) ||
+                item.type.toLowerCase().includes(trimmed)
+            );
+
+            if (filtered.length === 0) {
+                list.innerHTML = `<div class="p-3 text-xs text-slate-400 text-center">ምንም የተገኘ መረጃ የለም ("${query}")</div>`;
+            } else {
+                list.innerHTML = filtered.map(item => `
+                    <a href="${item.link}" onclick="clearSearch()" class="block p-2.5 hover:bg-slate-800 rounded-lg transition-colors group">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-200 group-hover:text-indigo-400">${item.name}</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-mono">${item.type}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-0.5">${item.desc}</p>
+                    </a>
+                `).join('');
+            }
+
+            dropdown.classList.remove('hidden');
+        }
+
+        function clearSearch() {
+            document.getElementById('header-search-input').value = '';
+            document.getElementById('search-results-dropdown').classList.add('hidden');
+            document.getElementById('clear-search-btn').classList.add('hidden');
+        }
+
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('search-results-dropdown');
+            const input = document.getElementById('header-search-input');
+            if (dropdown && input && !dropdown.contains(e.target) && !input.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // ===================================================================
+        // 4. EMBEDDED MULTI-DOMAIN AI ASSISTANT
+        // Detects language (Amharic/English) and topic; responds accordingly
+        // ===================================================================
+
+        function toggleAiChat() {
+            const box = document.getElementById('ai-chat-box');
+            box.classList.toggle('hidden');
+            if (!box.classList.contains('hidden')) {
+                document.getElementById('chat-input').focus();
+            }
+        }
+
+        function sendQuickPrompt(promptText) {
+            document.getElementById('chat-input').value = promptText;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const messagesDiv = document.getElementById('chat-messages');
+
+            const userMsgHtml = `
+                <div class="flex items-start justify-end gap-2.5">
+                    <div class="bg-indigo-600 text-white p-3 rounded-2xl rounded-tr-none text-xs sm:text-sm max-w-[85%] leading-relaxed shadow-md">
+                        ${escapeHtml(text)}
+                    </div>
+                </div>
+            `;
+            messagesDiv.insertAdjacentHTML('beforeend', userMsgHtml);
+            input.value = '';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            const typingId = 'typing-' + Date.now();
+            const typingHtml = `
+                <div id="${typingId}" class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bg-slate-800/90 text-slate-400 p-3 rounded-2xl rounded-tl-none border border-slate-700/60 text-xs flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce"></span>
+                        <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    </div>
+                </div>
+            `;
+            messagesDiv.insertAdjacentHTML('beforeend', typingHtml);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            setTimeout(() => {
+                const typingEl = document.getElementById(typingId);
+                if (typingEl) typingEl.remove();
+
+                const responseText = getAiResponse(text);
+                const aiMsgHtml = `
+                    <div class="flex items-start gap-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs flex-shrink-0 mt-1">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="chat-msg bg-slate-800/90 text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-700/60 leading-relaxed text-xs sm:text-sm shadow-md">
+                            ${responseText}
+                        </div>
+                    </div>
+                `;
+                messagesDiv.insertAdjacentHTML('beforeend', aiMsgHtml);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 700);
+        }
+
+        // Language detection: returns 'am' if text contains Amharic characters
+        function detectLanguage(q) {
+            return /[\u1200-\u137F\u1380-\u139F\u2D80-\u2DDF]/.test(q) ? 'am' : 'en';
+        }
+
+        // Comprehensive knowledge base of responses in both languages
+        const knowledge = {
+            // ==================== ABOUT MAREG ====================
+            about: {
+                am: `<strong>ማረጉ አራጋው (Mareg Lalibela) ማን ነው?</strong>
+                <br><br>
+                • <strong>Web Development & Database Administration</strong> ባለሙያ (Level V)
+                <br>• <strong>Health Information Technology (HIT/HMIS)</strong> ባለሙያ
+                <br>• <strong>UI/UX & Graphic Design</strong> እና <strong>System Administration</strong>
+                <br><br>
+                በላሊበላ ፖሊ ቴክኒክ ኮሌጅ የተማረ ሲሆን፣ በጤና መረጃ ቴክኖሎጂ፣ በዌብ ልማትና በዳታቤዝ አስተዳደር ሰፊ ልምድ አለው።
+                <br><br>
+                <strong>ለማስራት ያናግሩት፦</strong> <a href="tel:+251987781317">0987781317</a> (Gmail, Telegram, WhatsApp, LinkedIn, Facebook, Instagram)`,
+                en: `<strong>Who is Mareg Lalibela (Maregu Aragaw)?</strong>
+                <br><br>
+                • Full-Stack <strong>Web Developer</strong> & <strong>Database Administrator</strong> (Level V)
+                <br>• <strong>Health Information Technology (HIT/HMIS)</strong> Specialist
+                <br>• <strong>UI/UX & Graphic Designer</strong> and <strong>Systems Admin</strong>
+                <br><br>
+                Graduated from St. Lalibela Polytechnic College with Level V certification. Experienced in health data systems, web development, and database administration.
+                <br><br>
+                <strong>Contact to hire:</strong> <a href="tel:+251987781317">+251987781317</a> (Gmail, Telegram, WhatsApp, LinkedIn, Facebook, Instagram)`
+            },
+
+            services: {
+                am: `<strong>ማረጉ አራጋው የሚሰጣቸው አገልግሎቶች፦</strong>
+                <br><br>
+                💻 <strong>1. የዌብ ሳይት ልማት እና ዳታቤዝ አስተዳደር፦</strong>
+                <br>• ድረ-ገጾችን መገንባት (Web Development)
+                <br>• Logo መስራት እና ብራንዲንግ
+                <br>• Software መጫን እና Website መስራት
+                <br>• የመረጃ ማከማቻ (Database) መቅረጽ
+                <br>• የዳታቤዝ ደህንነትን መጠበቅ
+                <br>• የሲስተም ጥገና (System Maintenance)
+                <br><br>
+                🏥 <strong>2. የጤና መረጃ ቴክኖሎጂ (HIT)፦</strong>
+                <br>• የኤሌክትሮኒክ የጤና መዝገብ (EHR) ማስተዳደር
+                <br>• የጤና መረጃዎችን መተንተን
+                <br>• የህክምና ሶፍትዌሮችን መደገፍ
+                <br>• HMIS & DHIS2 ማስተዳደር
+                <br><br>
+                ✨ <strong>ለደንበኞች በፈለጉት አይነትና መጠን ባዘዙት ትዕዛዝ መሰረት ይሰራል።</strong>`,
+                en: `<strong>Services provided by Mareg Lalibela:</strong>
+                <br><br>
+                💻 <strong>1. Web Development & Database Administration:</strong>
+                <br>• Website building & Web Apps
+                <br>• Logo design & Branding
+                <br>• Software installation & Website creation
+                <br>• Database design & structuring
+                <br>• Database security & protection
+                <br>• System maintenance
+                <br><br>
+                🏥 <strong>2. Health Information Technology (HIT):</strong>
+                <br>• Electronic Health Records (EHR) management
+                <br>• Health data analytics
+                <br>• Medical software support
+                <br>• HMIS & DHIS2 administration
+                <br><br>
+                ✨ <strong>Custom solutions built to your specifications and requirements.</strong>`
+            },
+
+            contact: {
+                am: `📞 <strong>ማረጉ አራጋውን ለማግኘት፦</strong>
+                <br><br>
+                • <strong>ስልክ፦</strong> <a href="tel:+251987781317">0987781317</a>
+                <br>• <strong>Gmail፦</strong> mareguaragaw84@gmail.com
+                <br>• <strong>Telegram፦</strong> <a href="https://t.me/Mareg_Lalibela" target="_blank">@Mareg_Lalibela</a>
+                <br>• <strong>WhatsApp፦</strong> <a href="https://wa.me/251987781317" target="_blank">+251987781317</a>
+                <br>• <strong>LinkedIn፦</strong> Mareg Lalibela
+                <br>• <strong>Facebook፦</strong> Mareg Lalibela
+                <br>• <strong>Instagram፦</strong> @Mareg_Lalibela
+                <br><br>
+                ለደንበኞች በፈለጉት አይነትና መጠን ባዘዙት ትዕዛዝ መሰረት ይሰራል።`,
+                en: `📞 <strong>Contact Mareg Lalibela:</strong>
+                <br><br>
+                • <strong>Phone:</strong> <a href="tel:+251987781317">+251987781317</a>
+                <br>• <strong>Gmail:</strong> mareguaragaw84@gmail.com
+                <br>• <strong>Telegram:</strong> <a href="https://t.me/Mareg_Lalibela" target="_blank">@Mareg_Lalibela</a>
+                <br>• <strong>WhatsApp:</strong> <a href="https://wa.me/251987781317" target="_blank">+251987781317</a>
+                <br>• <strong>LinkedIn:</strong> Mareg Lalibela
+                <br>• <strong>Facebook:</strong> Mareg Lalibela
+                <br>• <strong>Instagram:</strong> @Mareg_Lalibela
+                <br><br>
+                Custom solutions built to your specifications.`
+            },
+
+            // ==================== COMPUTER & IT ====================
+            computer: {
+                am: `<strong>💻 ኮምፒውተር (Computer) ምንድነው?</strong>
+                <br><br>
+                ኮምፒውተር መረጃዎችን (Data) በማስተናገድ፣ በማከማቸት፣ በማስላትና በማሳየት የሚሰራ ኤሌክትሮኒክ መሳሪያ ነው።
+                <br><br>
+                <strong>ዋና ዋና ክፍሎቹ፦</strong>
+                <br>• <strong>Hardware (ሃርድዌር)፦</strong> የሚታዩና የሚዳሰሱ ክፍሎች (Monitor, Keyboard, CPU, Mouse, Printer)
+                <br>• <strong>Software (ሶፍትዌር)፦</strong> የሚሰሩ ፕሮግራሞች (Windows, MS Word, Excel, Browser)
+                <br>• <strong>Operating System (OS)፦</strong> ሃርድዌርና ሶፍትዌርን የሚያገናኝ ሲስተም (Windows, Linux, macOS)
+                <br>• <strong>Data & Information፦</strong> ጥሬ መረጃ እና ትርጉም ያለው መረጃ
+                <br><br>
+                <em>ለተጨማሪ ጥያቄ ስለ Software, Hardware, OS, Database ወይም Programming ይጠይቁኝ።</em>`,
+                en: `<strong>💻 What is a Computer?</strong>
+                <br><br>
+                A computer is an electronic device that processes, stores, calculates, and displays data.
+                <br><br>
+                <strong>Main Components:</strong>
+                <br>• <strong>Hardware:</strong> Physical parts (Monitor, Keyboard, CPU, Mouse, Printer)
+                <br>• <strong>Software:</strong> Programs (Windows, MS Word, Excel, Browser)
+                <br>• <strong>Operating System (OS):</strong> Connects hardware and software (Windows, Linux, macOS)
+                <br>• <strong>Data & Information:</strong> Raw facts and processed meaningful data
+                <br><br>
+                <em>Ask me about Software, Hardware, OS, Database, or Programming for more details.</em>`
+            },
+
+            software: {
+                am: `<strong>🖥️ ሶፍትዌር (Software) ምንድነው?</strong>
+                <br><br>
+                ሶፍትዌር ኮምፒውተር ላይ የሚሰሩ ፕሮግራሞችና መመሪያዎች ስብስብ ነው።
+                <br><br>
+                <strong>ሁለት ዓይነት ነው፦</strong>
+                <br>• <strong>System Software፦</strong> Operating System (Windows, Linux), Device Drivers, Utilities
+                <br>• <strong>Application Software፦</strong> MS Word, Excel, Browser, Games, WhatsApp
+                <br><br>
+                <strong>ማረጉ የሚሰጠው አገልግሎት፦</strong>
+                <br>• Software መጫን (Installation)
+                <br>• Software ጥገና (Maintenance)
+                <br>• Software ማዘመን (Update)
+                <br>• Custom Software ልማት`,
+                en: `<strong>🖥️ What is Software?</strong>
+                <br><br>
+                Software is a collection of programs and instructions that run on a computer.
+                <br><br>
+                <strong>Two Types:</strong>
+                <br>• <strong>System Software:</strong> Operating System (Windows, Linux), Device Drivers, Utilities
+                <br>• <strong>Application Software:</strong> MS Word, Excel, Browser, Games, WhatsApp
+                <br><br>
+                <strong>Mareg's Services:</strong>
+                <br>• Software installation
+                <br>• Software maintenance
+                <br>• Software updates
+                <br>• Custom software development`
+            },
+
+            hardware: {
+                am: `<strong>🔧 ሃርድዌር (Hardware) ምንድነው?</strong>
+                <br><br>
+                ሃርድዌር የኮምፒውተር አካላዊ ክፍሎች ናቸው — የሚታዩና የሚዳሰሱ።
+                <br><br>
+                <strong>ምሳሌዎች፦</strong>
+                <br>• <strong>Input Devices፦</strong> Keyboard, Mouse, Scanner, Microphone
+                <br>• <strong>Output Devices፦</strong> Monitor, Printer, Speaker, Projector
+                <br>• <strong>Processing Unit፦</strong> CPU (Central Processing Unit), RAM
+                <br>• <strong>Storage Devices፦</strong> Hard Disk (HDD), SSD, Flash Drive, CD/DVD
+                <br><br>
+                <strong>ማረጉ የሚሰጠው አገልግሎት፦</strong>
+                <br>• የኮምፒውተርና ፕሪንተር ጥገና
+                <br>• ሃርድዌር መተካትና ማስተካከል
+                <br>• የኔትወርክ ዝርጋታ (LAN, Router)`,
+                en: `<strong>🔧 What is Hardware?</strong>
+                <br><br>
+                Hardware refers to the physical components of a computer — things you can see and touch.
+                <br><br>
+                <strong>Examples:</strong>
+                <br>• <strong>Input Devices:</strong> Keyboard, Mouse, Scanner, Microphone
+                <br>• <strong>Output Devices:</strong> Monitor, Printer, Speaker, Projector
+                <br>• <strong>Processing Unit:</strong> CPU (Central Processing Unit), RAM
+                <br>• <strong>Storage Devices:</strong> Hard Disk (HDD), SSD, Flash Drive, CD/DVD
+                <br><br>
+                <strong>Mareg's Services:</strong>
+                <br>• PC & printer repair
+                <br>• Hardware replacement & troubleshooting
+                <br>• Network setup (LAN, Router)`
+            },
+
+            os: {
+                am: `<strong>⚙️ Operating System (OS) ምንድነው?</strong>
+                <br><br>
+                Operating System በሃርድዌርና በሶፍትዌር መካከል የሚያገናኝ ዋና ሶፍትዌር ነው። ኮምፒውተሩን ያስተዳድራል።
+                <br><br>
+                <strong>ምሳሌዎች፦</strong>
+                <br>• <strong>Windows፦</strong> 10, 11 (በጣም የተለመደ)
+                <br>• <strong>Linux፦</strong> Ubuntu, Fedora, Debian (ነጻና ክፍት)
+                <br>• <strong>macOS፦</strong> የ Apple ኮምፒውተሮች
+                <br>• <strong>Android & iOS፦</strong> የሞባይል OS
+                <br><br>
+                <strong>ዋና ስራዎቹ፦</strong> ፋይል አስተዳደር፣ ሜሞሪ አስተዳደር፣ ፕሮሰሰር አስተዳደር፣ ደህንነት`,
+                en: `<strong>⚙️ What is an Operating System (OS)?</strong>
+                <br><br>
+                An Operating System is the main software that connects hardware and software. It manages the computer.
+                <br><br>
+                <strong>Examples:</strong>
+                <br>• <strong>Windows:</strong> 10, 11 (most common)
+                <br>• <strong>Linux:</strong> Ubuntu, Fedora, Debian (free & open-source)
+                <br>• <strong>macOS:</strong> Apple computers
+                <br>• <strong>Android & iOS:</strong> Mobile OS
+                <br><br>
+                <strong>Main functions:</strong> File management, Memory management, Processor management, Security`
+            },
+
+            data: {
+                am: `<strong>📊 Data (ዳታ) እና Information (መረጃ) ምንድናቸው?</strong>
+                <br><br>
+                • <strong>Data፦</strong> ጥሬ፣ ያልተቀናጀ እውነታዎች (ለምሳሌ፦ ስሞች፣ ቁጥሮች፣ ምስሎች) — "100, 200, 300"
+                <br>• <strong>Information፦</strong> ትርጉም ያለው፣ የተቀናጀ ውጤት — "የ3 ተማሪዎች ውጤት 100, 200, 300 ነው"
+                <br><br>
+                <strong>ልዩነታቸው፦</strong> Data ጥሬ ነው፤ Information ትርጉም ያለውና ለውሳኔ የሚያገለግል ነው።
+                <br><br>
+                <strong>Data Processing Cycle፦</strong> Input → Processing → Output → Storage
+                <br><br>
+                <em>ስለ Database ወይም Information System ተጨማሪ መጠየቅ ይችላሉ።</em>`,
+                en: `<strong>📊 What are Data and Information?</strong>
+                <br><br>
+                • <strong>Data:</strong> Raw, unorganized facts (e.g., names, numbers, images) — "100, 200, 300"
+                <br>• <strong>Information:</strong> Processed, meaningful output — "The scores of 3 students are 100, 200, 300"
+                <br><br>
+                <strong>Difference:</strong> Data is raw; Information is meaningful and useful for decision-making.
+                <br><br>
+                <strong>Data Processing Cycle:</strong> Input → Processing → Output → Storage
+                <br><br>
+                <em>Ask about Database or Information Systems for more.</em>`
+            },
+
+            database: {
+                am: `<strong>🗄️ Database ምንድነው?</strong>
+                <br><br>
+                Database በስርዓት የተደራጀ የዳታ ስብስብ ነው። በኮምፒውተር ውስጥ በተደራጀ መንገድ የሚከማችና በቀላሉ ሊገኝ የሚችል መረጃ ነው።
+                <br><br>
+                <strong>ዓይነቶች፦</strong>
+                <br>• <strong>Relational Database፦</strong> MySQL, PostgreSQL, Oracle (Tables, Rows, Columns)
+                <br>• <strong>NoSQL Database፦</strong> MongoDB, Redis
+                <br><br>
+                <strong>DBMS (Database Management System)፦</strong> ዳታቤዝን የሚያስተዳድር ሶፍትዌር (MySQL, SQL Server)
+                <br><br>
+                <strong>SQL (Structured Query Language)፦</strong> ዳታቤዝ ለመፍጠር፣ ለማስገባት፣ ለማስተካከልና ለማግኘት የሚያገለግል ቋንቋ
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> Database Design, MySQL Administration, Data Security`,
+                en: `<strong>🗄️ What is a Database?</strong>
+                <br><br>
+                A database is an organized collection of data stored electronically in a structured way, easily accessible.
+                <br><br>
+                <strong>Types:</strong>
+                <br>• <strong>Relational Database:</strong> MySQL, PostgreSQL, Oracle (Tables, Rows, Columns)
+                <br>• <strong>NoSQL Database:</strong> MongoDB, Redis
+                <br><br>
+                <strong>DBMS (Database Management System):</strong> Software that manages databases (MySQL, SQL Server)
+                <br><br>
+                <strong>SQL (Structured Query Language):</strong> Language used to create, insert, update, and query databases
+                <br><br>
+                <strong>Mareg's Services:</strong> Database Design, MySQL Administration, Data Security`
+            },
+
+            programming: {
+                am: `<strong>⌨️ Programming (ፕሮግራሚንግ) ምንድነው?</strong>
+                <br><br>
+                Programming ለኮምፒውተር የሚሰጡ መመሪያዎችን (ፕሮግራሞችን) የመጻፍ ሂደት ነው።
+                <br><br>
+                <strong>ዋና ዋና የፕሮግራሚንግ ቋንቋዎች፦</strong>
+                <br>• <strong>Web፦</strong> HTML, CSS, JavaScript, PHP, Python
+                <br>• <strong>Desktop፦</strong> C++, Java, C#, Python
+                <br>• <strong>Mobile፦</strong> Kotlin (Android), Swift (iOS), Flutter
+                <br>• <strong>Database፦</strong> SQL, PL/SQL
+                <br><br>
+                <strong>ማረጉ የሚጠቀማቸው፦</strong> HTML, CSS, Tailwind, JavaScript, PHP, MySQL, Python (መሰረታዊ)
+                <br><br>
+                <em>ስለ Web Development, Database ወይም Software ተጨማሪ መጠየቅ ይችላሉ።</em>`,
+                en: `<strong>⌨️ What is Programming?</strong>
+                <br><br>
+                Programming is the process of writing instructions (programs) for a computer.
+                <br><br>
+                <strong>Main Programming Languages:</strong>
+                <br>• <strong>Web:</strong> HTML, CSS, JavaScript, PHP, Python
+                <br>• <strong>Desktop:</strong> C++, Java, C#, Python
+                <br>• <strong>Mobile:</strong> Kotlin (Android), Swift (iOS), Flutter
+                <br>• <strong>Database:</strong> SQL, PL/SQL
+                <br><br>
+                <strong>Mareg uses:</strong> HTML, CSS, Tailwind, JavaScript, PHP, MySQL, Python (basic)
+                <br><br>
+                <em>Ask about Web Development, Database, or Software for more.</em>`
+            },
+
+            webdev: {
+                am: `<strong>🌐 Web Development ምንድነው?</strong>
+                <br><br>
+                Web Development በኢንተርኔት ላይ የሚሰሩ ድረ-ገጾችንና የዌብ አፕሊኬሽኖችን የመገንባት ሂደት ነው።
+                <br><br>
+                <strong>ሁለት ዓይነት ነው፦</strong>
+                <br>• <strong>Front-end፦</strong> ተጠቃሚው የሚያየው ክፍል (HTML, CSS, JavaScript, React)
+                <br>• <strong>Back-end፦</strong> ከበስተጀርባ የሚሰራው ክፍል (PHP, Node.js, Python, Database)
+                <br><br>
+                <strong>Full-Stack፦</strong> ሁለቱንም የሚሰራ ገንቢ — ማረጉ አራጋው Full-Stack ገንቢ ነው።
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> Website Design, Web App Development, Database Integration, UI/UX, Logo Design`,
+                en: `<strong>🌐 What is Web Development?</strong>
+                <br><br>
+                Web Development is the process of building websites and web applications on the Internet.
+                <br><br>
+                <strong>Two Types:</strong>
+                <br>• <strong>Front-end:</strong> What users see (HTML, CSS, JavaScript, React)
+                <br>• <strong>Back-end:</strong> Server-side logic (PHP, Node.js, Python, Database)
+                <br><br>
+                <strong>Full-Stack:</strong> A developer who does both — Mareg Lalibela is a Full-Stack developer.
+                <br><br>
+                <strong>Mareg's Services:</strong> Website Design, Web App Development, Database Integration, UI/UX, Logo Design`
+            },
+
+            ai: {
+                am: `<strong>🤖 AI (Artificial Intelligence) ምንድነው?</strong>
+                <br><br>
+                Artificial Intelligence ማለት ኮምፒውተሮች የሰውን አስተሳሰብና ችሎታ እንዲሰሩ የሚያደርግ ቴክኖሎጂ ነው።
+                <br><br>
+                <strong>ዋና ዋና ዓይነቶች፦</strong>
+                <br>• <strong>Machine Learning (ML)፦</strong> ከዳታ የሚማር ሲስተም
+                <br>• <strong>Deep Learning፦</strong> ነርቭ ኔትወርኮችን የሚጠቀም
+                <br>• <strong>NLP (Natural Language Processing)፦</strong> የሰው ቋንቋን የሚረዳ (ChatGPT, Google Translate)
+                <br>• <strong>Computer Vision፦</strong> ምስሎችን የሚረዳ (Face Recognition)
+                <br><br>
+                <strong>ምሳሌዎች፦</strong> ChatGPT, Google Assistant, Self-driving Cars, Recommendation Systems
+                <br><br>
+                <strong>ማረጉ የሚጠቀምበት፦</strong> AI ለጤና መረጃ ትንተና እና ለሶፍትዌር ልማት`,
+                en: `<strong>🤖 What is AI (Artificial Intelligence)?</strong>
+                <br><br>
+                Artificial Intelligence is technology that enables computers to simulate human intelligence and capabilities.
+                <br><br>
+                <strong>Main Types:</strong>
+                <br>• <strong>Machine Learning (ML):</strong> Systems that learn from data
+                <br>• <strong>Deep Learning:</strong> Uses neural networks
+                <br>• <strong>NLP (Natural Language Processing):</strong> Understands human language (ChatGPT, Google Translate)
+                <br>• <strong>Computer Vision:</strong> Understands images (Face Recognition)
+                <br><br>
+                <strong>Examples:</strong> ChatGPT, Google Assistant, Self-driving Cars, Recommendation Systems
+                <br><br>
+                <strong>Mareg uses AI for:</strong> Health data analytics and software development`
+            },
+
+            // ==================== TOURISM & GEOGRAPHY ====================
+            lalibela: {
+                am: `<strong>🏛️ ላሊበላ (Lalibela) — የዓለም ውቅር ቤተክርስቲያናት</strong>
+                <br><br>
+                ላሊበላ በኢትዮጵያ ሰሜን ወሎ ዞን የሚገኝ ታሪካዊ ከተማ ነው። በዓለም አቀፍ የቅርስ ድርጅት (UNESCO) የተመዘገበ የዓለም ውቅር ነው።
+                <br><br>
+                <strong>ዋና መስህቦች፦</strong>
+                <br>• <strong>11 ውቅር ቤተክርስቲያናት፦</strong> ከዓለት የተፈለፈሉ (Rock-hewn Churches)
+                <br>• <strong>ቤተ ጊዮርጊስ፦</strong> በመስቀል ቅርጽ የተፈለፈ
+                <br>• <strong>ቤተ ማርያም፣ ቤተ መድሃኒዓለም፣ ቤተ ጎለጎታ</strong>
+                <br>• <strong>የላሊበላ መስቀል</strong>
+                <br><br>
+                <strong>ታሪካዊ ዳራ፦</strong> በ12ኛው ክፍለ ዘመን በንጉሥ ላሊበላ ዘመን የተሰሩ ናቸው።
+                <br><br>
+                <strong>ለቱሪስቶች፦</strong> ማረጉ አራጋው የላሊበላ ተወላጅ ሲሆን፣ የቱሪዝም ዌብሳይት ልማት አገልግሎት ይሰጣል።`,
+                en: `<strong>🏛️ Lalibela — Rock-Hewn Churches of the World</strong>
+                <br><br>
+                Lalibela is a historic town in the North Wollo Zone of Ethiopia. It is a UNESCO World Heritage Site.
+                <br><br>
+                <strong>Main Attractions:</strong>
+                <br>• <strong>11 Rock-Hewn Churches:</strong> Carved from solid rock
+                <br>• <strong>Bete Giyorgis:</strong> Carved in the shape of a cross
+                <br>• <strong>Bete Maryam, Bete Medhane Alem, Bete Golgotha</strong>
+                <br>• <strong>The Lalibela Cross</strong>
+                <br><br>
+                <strong>Historical Background:</strong> Built in the 12th century during the reign of King Lalibela.
+                <br><br>
+                <strong>For Tourists:</strong> Mareg Lalibela is a native of Lalibela and offers tourism website development services.`
+            },
+
+            tourism: {
+                am: `<strong>🌍 ቱሪዝም (Tourism) ምንድነው?</strong>
+                <br><br>
+                ቱሪዝም ሰዎች ለማረፍ፣ ለማሰስ፣ ለማጥናት ወይም ለጉዞ ከተለመደው ቦታቸው ራቅ ብለው የሚያደርጉት ጉዞ ነው።
+                <br><br>
+                <strong>ዓይነቶች፦</strong>
+                <br>• <strong>Cultural Tourism፦</strong> ታሪካዊና ባህላዊ ቦታዎች (ላሊበላ፣ አክሱም፣ ጎንደር)
+                <br>• <strong>Wildlife Tourism፦</strong> የተፈጥሮ ፓርኮች (ሰሜን፣ ባሌ)
+                <br>• <strong>Adventure Tourism፦</strong> ተራሮችን መውጣት፣ ራፍቲንግ
+                <br>• <strong>Health Tourism፦</strong> ለህክምና ጉዞ
+                <br><br>
+                <strong>ኢትዮጵያ ዋና የቱሪዝም ቦታዎች፦</strong>
+                <br>• ላሊበላ ውቅር ቤተክርስቲያናት
+                <br>• አክሱም ሐውልቶች
+                <br>• ጎንደር ቤተመንግስት
+                <br>• ዳንኤል ኮርቻ (የኢትዮጵያ ግራንድ ካንየን)
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> የቱሪዝም ዌብሳይት፣ Booking System እና Digital Marketing`,
+                en: `<strong>🌍 What is Tourism?</strong>
+                <br><br>
+                Tourism is travel away from one's usual environment for leisure, exploration, study, or business.
+                <br><br>
+                <strong>Types:</strong>
+                <br>• <strong>Cultural Tourism:</strong> Historic & cultural sites (Lalibela, Axum, Gondar)
+                <br>• <strong>Wildlife Tourism:</strong> National Parks (Simien, Bale)
+                <br>• <strong>Adventure Tourism:</strong> Mountain climbing, rafting
+                <br>• <strong>Health Tourism:</strong> Medical travel
+                <br><br>
+                <strong>Major Tourist Sites in Ethiopia:</strong>
+                <br>• Lalibela Rock-Hewn Churches
+                <br>• Axum Obelisks
+                <br>• Gondar Castles
+                <br>• Danakil Depression
+                <br><br>
+                <strong>Mareg's Services:</strong> Tourism websites, Booking Systems, and Digital Marketing`
+            },
+
+            geography: {
+                am: `<strong>🌍 Geography (ጂኦግራፊ) ምንድነው?</strong>
+                <br><br>
+                Geography ስለ ምድር ገጽታ፣ ስለ ሰዎች፣ ስለ አካባቢና ስለ ቦታዎች መስተጋብር የሚያጠና ሳይንስ ነው።
+                <br><br>
+                <strong>ሁለት ዋና ዓይነት ነው፦</strong>
+                <br>• <strong>Physical Geography፦</strong> የተፈጥሮ ገጽታ (ተራሮች፣ ወንዞች፣ የአየር ንብረት)
+                <br>• <strong>Human Geography፦</strong> የሰው ልጅ እንቅስቃሴ (ህዝብ፣ ከተሞች፣ ኢኮኖሚ)
+                <br><br>
+                <strong>ዋና ዋና ጽንሰ-ሐሳቦች፦</strong>
+                <br>• <strong>Location፦</strong> የአንድ ቦታ አቀማመጥ (Latitude, Longitude)
+                <br>• <strong>Place፦</strong> የአንድ ቦታ ልዩ ባህሪያት
+                <br>• <strong>Region፦</strong> ተመሳሳይ ባህሪ ያላቸው አካባቢዎች
+                <br>• <strong>Movement፦</strong> የሰዎችና ዕቃዎች እንቅስቃሴ
+                <br>• <strong>Human-Environment Interaction፦</strong> ሰውና ተፈጥሮ መስተጋብር`,
+                en: `<strong>🌍 What is Geography?</strong>
+                <br><br>
+                Geography is the science that studies the Earth's surface, people, environments, and the interaction between places.
+                <br><br>
+                <strong>Two Main Types:</strong>
+                <br>• <strong>Physical Geography:</strong> Natural features (mountains, rivers, climate)
+                <br>• <strong>Human Geography:</strong> Human activities (population, cities, economy)
+                <br><br>
+                <strong>Key Concepts:</strong>
+                <br>• <strong>Location:</strong> Position of a place (Latitude, Longitude)
+                <br>• <strong>Place:</strong> Unique characteristics of a location
+                <br>• <strong>Region:</strong> Areas with similar characteristics
+                <br>• <strong>Movement:</strong> Movement of people and goods
+                <br>• <strong>Human-Environment Interaction:</strong> How humans and nature affect each other`
+            },
+
+            gps: {
+                am: `<strong>📍 GPS (Global Positioning System) ምንድነው?</strong>
+                <br><br>
+                GPS በሳተላይት ላይ የተመሠረተ የቦታ አቀማመጥ ማወቂያ ሲስተም ነው። በዓለም ዙሪያ ያሉ ሳተላይቶችን በመጠቀም የአንድን ቦታ አቀማመጥ (Latitude, Longitude, Altitude) ይወስናል።
+                <br><br>
+                <strong>እንዴት ይሰራል?</strong>
+                <br>• ሳተላይቶች ምልክት ይልካሉ
+                <br>• መሳሪያው ምልክቱን ይቀበላል
+                <br>• በሂሳብ ስሌት ቦታውን ይወስናል
+                <br><br>
+                <strong>አጠቃቀሞች፦</strong>
+                <br>• የመንገድ አቅጣጫ (Google Maps, Waze)
+                <br>• የቦታ ፍለጋ
+                <br>• የማመላለሻ መከታተያ
+                <br>• የአደጋ ጊዜ እርዳታ
+                <br>• የግብርና እና የአካባቢ ክትትል`,
+                en: `<strong>📍 What is GPS (Global Positioning System)?</strong>
+                <br><br>
+                GPS is a satellite-based navigation system that determines the location (Latitude, Longitude, Altitude) of a place using satellites orbiting the Earth.
+                <br><br>
+                <strong>How it works:</strong>
+                <br>• Satellites transmit signals
+                <br>• The device receives signals
+                <br>• It calculates the position mathematically
+                <br><br>
+                <strong>Uses:</strong>
+                <br>• Navigation (Google Maps, Waze)
+                <br>• Location tracking
+                <br>• Transportation tracking
+                <br>• Emergency rescue
+                <br>• Agriculture and environmental monitoring`
+            },
+
+            // ==================== SCIENCE ====================
+            science: {
+                am: `<strong>🔬 ሳይንስ (Science) ምንድነው?</strong>
+                <br><br>
+                ሳይንስ ስለ ተፈጥሮ ዓለም የሚያጠና እና በምልከታ፣ በሙከራና በማስረጃ ላይ የተመሠረተ የእውቀት ሥርዓት ነው።
+                <br><br>
+                <strong>ዋና ዋና የሳይንስ ዘርፎች፦</strong>
+                <br>• <strong>Physics (ፊዚክስ)፦</strong> ስለ ኃይል፣ ስለ እንቅስቃሴ፣ ስለ ነገሮች ባህሪ
+                <br>• <strong>Chemistry (ኬሚስትሪ)፦</strong> ስለ ንጥረ ነገሮች፣ ስለ ግንኙነቶች
+                <br>• <strong>Biology (ባዮሎጂ)፦</strong> ስለ ህይወት ያላቸው ፍጥረታት
+                <br>• <strong>Mathematics (ሒሳብ)፦</strong> ስለ ቁጥሮች፣ ስለ ቅርጾች፣ ስለ ግንኙነቶች
+                <br>• <strong>Earth Science፦</strong> ስለ ምድር፣ ስለ አየር፣ ስለ ውቅያኖሶች
+                <br><br>
+                <strong>Scientific Method፦</strong> Observation → Question → Hypothesis → Experiment → Conclusion`,
+                en: `<strong>🔬 What is Science?</strong>
+                <br><br>
+                Science is a system of knowledge about the natural world, based on observation, experimentation, and evidence.
+                <br><br>
+                <strong>Main Branches:</strong>
+                <br>• <strong>Physics:</strong> Energy, motion, properties of matter
+                <br>• <strong>Chemistry:</strong> Elements, compounds, reactions
+                <br>• <strong>Biology:</strong> Living organisms
+                <br>• <strong>Mathematics:</strong> Numbers, shapes, relationships
+                <br>• <strong>Earth Science:</strong> Earth, atmosphere, oceans
+                <br><br>
+                <strong>Scientific Method:</strong> Observation → Question → Hypothesis → Experiment → Conclusion`
+            },
+
+            math: {
+                am: `<strong>📐 ሒሳብ (Mathematics) ምንድነው?</strong>
+                <br><br>
+                ሒሳብ ስለ ቁጥሮች፣ ስለ ቅርጾች፣ ስለ አልጀብራ፣ ስለ ጂኦሜትሪና ስለ ስታቲስቲክስ የሚያጠና ሳይንስ ነው።
+                <br><br>
+                <strong>ዋና ዋና ዘርፎች፦</strong>
+                <br>• <strong>Arithmetic፦</strong> መደመር፣ መቀነስ፣ ማባዛት፣ ማካፈል
+                <br>• <strong>Algebra፦</strong> እኩልታዎችን መፍታት (x + 5 = 10)
+                <br>• <strong>Geometry፦</strong> ቅርጾችና መጠኖች (triangle, circle, area)
+                <br>• <strong>Calculus፦</strong> ለውጥን የሚያጠና (Derivatives, Integrals)
+                <br>• <strong>Statistics፦</strong> ዳታ ትንተና (Mean, Median, Mode)
+                <br><br>
+                <strong>ጥቅሞቹ፦</strong> ችግር የመፍታት ችሎታን ያሳድጋል። በቴክኖሎጂ፣ በሳይንስና በኢኮኖሚ ወሳኝ ነው።`,
+                en: `<strong>📐 What is Mathematics?</strong>
+                <br><br>
+                Mathematics is the science of numbers, shapes, algebra, geometry, and statistics.
+                <br><br>
+                <strong>Main Branches:</strong>
+                <br>• <strong>Arithmetic:</strong> Addition, subtraction, multiplication, division
+                <br>• <strong>Algebra:</strong> Solving equations (x + 5 = 10)
+                <br>• <strong>Geometry:</strong> Shapes and measurements (triangle, circle, area)
+                <br>• <strong>Calculus:</strong> Study of change (Derivatives, Integrals)
+                <br>• <strong>Statistics:</strong> Data analysis (Mean, Median, Mode)
+                <br><br>
+                <strong>Benefits:</strong> Builds problem-solving skills. Essential in technology, science, and economics.`
+            },
+
+            physics: {
+                am: `<strong>⚛️ ፊዚክስ (Physics) ምንድነው?</strong>
+                <br><br>
+                ፊዚክስ ስለ ነገሮች እንቅስቃሴ፣ ስለ ኃይል፣ ስለ ሙቀት፣ ስለ ብርሃን፣ ስለ ድምጽና ስለ ኤሌክትሪክ የሚያጠና ሳይንስ ነው።
+                <br><br>
+                <strong>ዋና ዋና ርዕሶች፦</strong>
+                <br>• <strong>Mechanics፦</strong> እንቅስቃሴና ኃይል (Newton's Laws)
+                <br>• <strong>Thermodynamics፦</strong> ሙቀትና ኃይል
+                <br>• <strong>Optics፦</strong> ብርሃንና አይን
+                <br>• <strong>Electricity & Magnetism፦</strong> ኤሌክትሪክና ማግኔት
+                <br>• <strong>Quantum Physics፦</strong> ትንንሽ ቅንጣቶች
+                <br><br>
+                <strong>ምሳሌዎች፦</strong> ስበት (Gravity), የብርሃን ፍጥነት (3×10⁸ m/s), የኤሌክትሪክ ጅረት`,
+                en: `<strong>⚛️ What is Physics?</strong>
+                <br><br>
+                Physics is the science that studies motion, energy, heat, light, sound, and electricity.
+                <br><br>
+                <strong>Main Topics:</strong>
+                <br>• <strong>Mechanics:</strong> Motion and forces (Newton's Laws)
+                <br>• <strong>Thermodynamics:</strong> Heat and energy
+                <br>• <strong>Optics:</strong> Light and vision
+                <br>• <strong>Electricity & Magnetism:</strong> Electric and magnetic phenomena
+                <br>• <strong>Quantum Physics:</strong> Subatomic particles
+                <br><br>
+                <strong>Examples:</strong> Gravity, Speed of light (3×10⁸ m/s), Electric current`
+            },
+
+            chemistry: {
+                am: `<strong>🧪 ኬሚስትሪ (Chemistry) ምንድነው?</strong>
+                <br><br>
+                ኬሚስትሪ ስለ ንጥረ ነገሮች (Elements)፣ ስለ ውህዶች (Compounds)፣ ስለ ግንኙነቶቻቸውና ስለ ባህሪያቸው የሚያጠና ሳይንስ ነው።
+                <br><br>
+                <strong>ዋና ዋና ርዕሶች፦</strong>
+                <br>• <strong>Atomic Structure፦</strong> አቶም (Proton, Neutron, Electron)
+                <br>• <strong>Periodic Table፦</strong> የንጥረ ነገሮች ሰንጠረዥ (H, O, C, N, Fe...)
+                <br>• <strong>Chemical Bonds፦</strong> Ionic, Covalent, Metallic
+                <br>• <strong>Acids & Bases፦</strong> አሲድና ቤዝ (pH scale)
+                <br>• <strong>Organic Chemistry፦</strong> የካርቦን ውህዶች
+                <br><br>
+                <strong>ምሳሌዎች፦</strong> ውሃ (H₂O), ጨው (NaCl), ካርቦን ዳይኦክሳይድ (CO₂)`,
+                en: `<strong>🧪 What is Chemistry?</strong>
+                <br><br>
+                Chemistry is the science that studies elements, compounds, their reactions, and properties.
+                <br><br>
+                <strong>Main Topics:</strong>
+                <br>• <strong>Atomic Structure:</strong> Atoms (Proton, Neutron, Electron)
+                <br>• <strong>Periodic Table:</strong> Elements (H, O, C, N, Fe...)
+                <br>• <strong>Chemical Bonds:</strong> Ionic, Covalent, Metallic
+                <br>• <strong>Acids & Bases:</strong> pH scale
+                <br>• <strong>Organic Chemistry:</strong> Carbon compounds
+                <br><br>
+                <strong>Examples:</strong> Water (H₂O), Salt (NaCl), Carbon Dioxide (CO₂)`
+            },
+
+            // ==================== LANGUAGE & SOCIAL ====================
+            english: {
+                am: `<strong>📖 English (እንግሊዝኛ) ለምን ይማራል?</strong>
+                <br><br>
+                English በዓለም አቀፍ ደረጃ በጣም የተስፋፋ የመግባቢያ ቋንቋ ነው።
+                <br><br>
+                <strong>ለምን ይማራል?</strong>
+                <br>• ለቴክኖሎጂና ለሳይንስ (Documentation, Programming, Research)
+                <br>• ለትምህርት (Universities, Online Courses)
+                <br>• ለንግድ (International Business)
+                <br>• ለቱሪዝም (Communication with tourists)
+                <br>• ለሚዲያ (Films, Music, News)
+                <br><br>
+                <strong>ዋና ክህሎቶች፦</strong> Listening (ማዳመጥ), Speaking (መናገር), Reading (ማንበብ), Writing (መጻፍ)
+                <br><br>
+                <strong>ጠቃሚ ምክር፦</strong> በየቀኑ ያንብቡ፣ ያዳምጡ፣ ይናገሩ። Grammar እና Vocabulary ያሳድጉ።`,
+                en: `<strong>📖 Why Learn English?</strong>
+                <br><br>
+                English is the most widely used international communication language.
+                <br><br>
+                <strong>Why learn it?</strong>
+                <br>• For Technology & Science (Documentation, Programming, Research)
+                <br>• For Education (Universities, Online Courses)
+                <br>• For Business (International Trade)
+                <br>• For Tourism (Communication with tourists)
+                <br>• For Media (Films, Music, News)
+                <br><br>
+                <strong>Main Skills:</strong> Listening, Speaking, Reading, Writing
+                <br><br>
+                <strong>Tips:</strong> Read, listen, and speak daily. Build your grammar and vocabulary.`
+            },
+
+            civics: {
+                am: `<strong>🏛️ Civics (ዜግነት) ምንድነው?</strong>
+                <br><br>
+                Civics ስለ ዜጎች መብቶችና ግዴታዎች፣ ስለ መንግሥት አወቃቀር፣ ስለ ሕግ፣ ስለ ዲሞክራሲና ስለ ማህበረሰብ ሃላፊነት የሚያስተምር ትምህርት ነው።
+                <br><br>
+                <strong>ዋና ዋና ርዕሶች፦</strong>
+                <br>• <strong>Rights & Duties፦</strong> የዜጎች መብቶችና ግዴታዎች
+                <br>• <strong>Government Structure፦</strong> የመንግሥት አወቃቀር (Executive, Legislative, Judicial)
+                <br>• <strong>Democracy፦</strong> ዲሞክራሲና ምርጫ
+                <br>• <strong>Rule of Law፦</strong> የሕግ የበላይነት
+                <br>• <strong>Human Rights፦</strong> የሰብዓዊ መብቶች
+                <br>• <strong>Citizenship፦</strong> ዜግነትና ተሳትፎ
+                <br><br>
+                <strong>ጠቃሚነቱ፦</strong> ንቁና ኃላፊነት የሚሰማው ዜጋ ለመሆን ያግዛል።`,
+                en: `<strong>🏛️ What is Civics?</strong>
+                <br><br>
+                Civics is the study of citizens' rights and duties, government structure, law, democracy, and community responsibility.
+                <br><br>
+                <strong>Main Topics:</strong>
+                <br>• <strong>Rights & Duties:</strong> Citizens' rights and obligations
+                <br>• <strong>Government Structure:</strong> Executive, Legislative, Judicial branches
+                <br>• <strong>Democracy:</strong> Democratic systems and elections
+                <br>• <strong>Rule of Law:</strong> Supremacy of law
+                <br>• <strong>Human Rights:</strong> Fundamental human rights
+                <br>• <strong>Citizenship:</strong> Active citizenship and participation
+                <br><br>
+                <strong>Benefits:</strong> Helps you become an active and responsible citizen.`
+            },
+
+            drawing: {
+                am: `<strong>🎨 Drawing (ስዕል) ምንድነው?</strong>
+                <br><br>
+                Drawing ምስሎችን፣ ቅርጾችንና ሀሳቦችን በእጅ ወይም በዲጂታል መንገድ የመፍጠር ጥበብ ነው።
+                <br><br>
+                <strong>ዓይነቶች፦</strong>
+                <br>• <strong>Freehand Drawing፦</strong> በእጅ መሳያ (Pencil, Pen)
+                <br>• <strong>Technical Drawing፦</strong> ቴክኒካል ስዕል (Architecture, Engineering)
+                <br>• <strong>Digital Drawing፦</strong> በኮምፒውተር (Photoshop, Illustrator, Procreate)
+                <br>• <strong>Graphic Design፦</strong> Logo, Poster, Social Media Design
+                <br><br>
+                <strong>ጠቃሚ ክህሎቶች፦</strong> Creativity, Observation, Patience, Practice
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> Logo Design, Branding, UI/UX Design, Digital Art`,
+                en: `<strong>🎨 What is Drawing?</strong>
+                <br><br>
+                Drawing is the art of creating images, shapes, and ideas manually or digitally.
+                <br><br>
+                <strong>Types:</strong>
+                <br>• <strong>Freehand Drawing:</strong> By hand (Pencil, Pen)
+                <br>• <strong>Technical Drawing:</strong> Architecture, Engineering
+                <br>• <strong>Digital Drawing:</strong> On computer (Photoshop, Illustrator, Procreate)
+                <br>• <strong>Graphic Design:</strong> Logo, Poster, Social Media Design
+                <br><br>
+                <strong>Key Skills:</strong> Creativity, Observation, Patience, Practice
+                <br><br>
+                <strong>Mareg's Services:</strong> Logo Design, Branding, UI/UX Design, Digital Art`
+            },
+
+            // ==================== HEALTH IT ====================
+            hit: {
+                am: `<strong>🏥 Health Information Technology (HIT) ምንድነው?</strong>
+                <br><br>
+                HIT የጤና መረጃዎችን በዲጂታል ቴክኖሎጂ የማስተዳደር ሥርዓት ነው።
+                <br><br>
+                <strong>ዋና ክፍሎች፦</strong>
+                <br>• <strong>EHR (Electronic Health Record)፦</strong> የታካሚ ዲጂታል መዝገብ
+                <br>• <strong>EMR (Electronic Medical Record)፦</strong> የህክምና ዲጂታል መዝገብ
+                <br>• <strong>HMIS (Health Management Information System)፦</strong> የጤና አስተዳደር መረጃ ሲስተም
+                <br>• <strong>DHIS2፦</strong> ክፍት ምንጭ የጤና መረጃ ሶፍትዌር
+                <br>• <strong>Telemedicine፦</strong> በርቀት ህክምና አገልግሎት
+                <br><br>
+                <strong>ጥቅሞቹ፦</strong> የታካሚ መረጃ በቀላሉ መገኘት፣ ስህተት መቀነስ፣ ፍጥነት መጨመር፣ የጤና አገልግሎት ጥራት መሻሻል
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> HMIS/DHIS2 አስተዳደር፣ EHR ማስተዳደር፣ የጤና መረጃ ትንተና`,
+                en: `<strong>🏥 What is Health Information Technology (HIT)?</strong>
+                <br><br>
+                HIT is the system of managing health information using digital technology.
+                <br><br>
+                <strong>Main Components:</strong>
+                <br>• <strong>EHR (Electronic Health Record):</strong> Digital patient records
+                <br>• <strong>EMR (Electronic Medical Record):</strong> Digital medical records
+                <br>• <strong>HMIS (Health Management Information System):</strong> Health admin data system
+                <br>• <strong>DHIS2:</strong> Open-source health data software
+                <br>• <strong>Telemedicine:</strong> Remote medical services
+                <br><br>
+                <strong>Benefits:</strong> Easy access to patient data, fewer errors, speed, improved healthcare quality
+                <br><br>
+                <strong>Mareg's Services:</strong> HMIS/DHIS2 administration, EHR management, health data analytics`
+            },
+
+            hmis: {
+                am: `<strong>📋 HMIS (Health Management Information System) ምንድነው?</strong>
+                <br><br>
+                HMIS ለጤና አገልግሎት አስተዳደር የሚያገለግል የመረጃ ሲስተም ነው። የጤና መረጃዎችን በስርዓት ለመሰብሰብ፣ ለማከማቸትና ለመተንተን ያገለግላል።
+                <br><br>
+                <strong>ዋና ጥቅሞች፦</strong>
+                <br>• የጤና መረጃ ማሰባሰብ
+                <br>• የጤና አገልግሎት ክትትልና ግምገማ
+                <br>• ውሳኔ ለማድረግ መረጃ ማቅረብ
+                <br>• ሪፖርት ማዘጋጀት
+                <br><br>
+                <strong>DHIS2፦</strong> DHIS2 ከHMIS ጋር የሚሰራ ክፍት ምንጭ ሶፍትዌር ነው። በኢትዮጵያ ጤና ተቋማት በስፋት ጥቅም ላይ ይውላል።
+                <br><br>
+                <strong>ማረጉ የሚሰጠው፦</strong> HMIS እና DHIS2 አስተዳደር፣ የመረጃ ጥራት፣ ሪፖርት አዘጋጅቶ ማቅረብ፣ ሰልጣኞችን ማሰልጠን`,
+                en: `<strong>📋 What is HMIS?</strong>
+                <br><br>
+                HMIS is an information system for health service management. It collects, stores, and analyzes health data systematically.
+                <br><br>
+                <strong>Main Benefits:</strong>
+                <br>• Health data collection
+                <br>• Health service monitoring & evaluation
+                <br>• Providing data for decision-making
+                <br>• Report generation
+                <br><br>
+                <strong>DHIS2:</strong> DHIS2 is an open-source software that works with HMIS. It is widely used in Ethiopian health facilities.
+                <br><br>
+                <strong>Mareg's Services:</strong> HMIS & DHIS2 administration, data quality, report generation, staff training`
+            }
+        };
+
+        // Match keywords to knowledge base entries
+        function getAiResponse(q) {
+            const query = q.toLowerCase();
+            const lang = detectLanguage(q);
+            const isAm = lang === 'am';
+
+            // Helper to output response in the correct language
+            const reply = (key) => knowledge[key][lang];
+
+            // ---- DEFINITION QUERIES (ትርጉም/Define/What is) ----
+            if (query.includes('ትርጉም') || query.includes('define') || query.includes('ምንድነው') || query.includes('ምን ማለት') || query.includes('what is') || query.includes('what are')) {
+                // specific definitions
+                if (query.includes('database') || query.includes('ዳታቤዝ')) return reply('database');
+                if (query.includes('data') || query.includes('ዳታ')) return reply('data');
+                if (query.includes('software') || query.includes('ሶፍትዌር')) return reply('software');
+                if (query.includes('hardware') || query.includes('ሃርድዌር')) return reply('hardware');
+                if (query.includes('operating system') || query.includes('os') || query.includes('ኦፕሬቲንግ')) return reply('os');
+                if (query.includes('programming') || query.includes('ፕሮግራሚንግ')) return reply('programming');
+                if (query.includes('web') || query.includes('ዌብ')) return reply('webdev');
+                if (query.includes('ai') || query.includes('artificial intelligence') || query.includes('አርቲፊሻል')) return reply('ai');
+                if (query.includes('computer') || query.includes('ኮምፒውተር')) return reply('computer');
+                if (query.includes('hit') || query.includes('health information')) return reply('hit');
+                if (query.includes('hmis')) return reply('hmis');
+                if (query.includes('science') || query.includes('ሳይንስ')) return reply('science');
+                if (query.includes('math') || query.includes('ሒሳብ') || query.includes('mathematics')) return reply('math');
+                if (query.includes('physics') || query.includes('ፊዚክስ')) return reply('physics');
+                if (query.includes('chemistry') || query.includes('ኬሚስትሪ')) return reply('chemistry');
+                if (query.includes('english') || query.includes('እንግሊዝኛ')) return reply('english');
+                if (query.includes('civics') || query.includes('ዜግነት')) return reply('civics');
+                if (query.includes('drawing') || query.includes('ስዕል')) return reply('drawing');
+                if (query.includes('tourism') || query.includes('ቱሪዝም')) return reply('tourism');
+                if (query.includes('geography') || query.includes('ጂኦግራፊ')) return reply('geography');
+                if (query.includes('gps')) return reply('gps');
+                if (query.includes('lalibela') || query.includes('ላሊበላ')) return reply('lalibela');
+                // fallback definition
+                return isAm
+                    ? `📖 የጠየቁትን ቃል ትርጉም ለማወቅ እሞክራለሁ። እባክዎ ጥያቄዎን በተጨማሪ ዝርዝር ይጻፉ ወይም ከሚከተሉት ርዕሶች አንዱን ይምረጡ፦ Computer, Software, Hardware, Database, Programming, AI, Tourism, Lalibela, Geography, GPS, Science, Math, Physics, Chemistry, English, Civics, Drawing, HIT, HMIS።`
+                    : `📖 I'd be happy to explain. Please specify more clearly, or choose one of these topics: Computer, Software, Hardware, Database, Programming, AI, Tourism, Lalibela, Geography, GPS, Science, Math, Physics, Chemistry, English, Civics, Drawing, HIT, HMIS.`;
+            }
+
+            // ---- ABOUT MAREG ----
+            if (query.includes('ማን') || query.includes('who') || query.includes('ማረጉ') || query.includes('mareg')) {
+                if (query.includes('አገልግሎት') || query.includes('service')) return reply('services');
+                return reply('about');
+            }
+
+            // ---- SERVICES ----
+            if (query.includes('አገልግሎት') || query.includes('service') || query.includes('የሚሰጣ') || query.includes('የሚሰራው')) {
+                return reply('services');
+            }
+
+            // ---- CONTACT ----
+            if (query.includes('አድራሻ') || query.includes('ስልክ') || query.includes('contact') || query.includes('phone') || query.includes('09') || query.includes('telegram') || query.includes('gmail') || query.includes('ማስራት') || query.includes('whatsapp') || query.includes('email')) {
+                return reply('contact');
+            }
+
+            // ---- TOPIC MATCHING (no specific definition word) ----
+            if (query.includes('computer') || query.includes('ኮምፒውተር')) return reply('computer');
+            if (query.includes('software') || query.includes('ሶፍትዌር')) return reply('software');
+            if (query.includes('hardware') || query.includes('ሃርድዌር')) return reply('hardware');
+            if (query.includes('database') || query.includes('ዳታቤዝ') || query.includes('sql') || query.includes('mysql')) return reply('database');
+            if (query.includes('data') || query.includes('ዳታ') || query.includes('information')) return reply('data');
+            if (query.includes('programming') || query.includes('ፕሮግራሚንግ') || query.includes('coding')) return reply('programming');
+            if (query.includes('web') || query.includes('ዌብ') || query.includes('website') || query.includes('website መስራት')) return reply('webdev');
+            if (query.includes('ai') || query.includes('artificial') || query.includes('አርቲፊሻል') || query.includes('ረዳት')) return reply('ai');
+            if (query.includes('os') || query.includes('operating system') || query.includes('windows') || query.includes('linux')) return reply('os');
+            if (query.includes('tourism') || query.includes('ቱሪዝም') || query.includes('tourist')) return reply('tourism');
+            if (query.includes('lalibela') || query.includes('ላሊበላ')) return reply('lalibela');
+            if (query.includes('geography') || query.includes('ጂኦግራፊ') || query.includes('earth')) return reply('geography');
+            if (query.includes('gps') || query.includes('location') || query.includes('map')) return reply('gps');
+            if (query.includes('science') || query.includes('ሳይንስ')) return reply('science');
+            if (query.includes('math') || query.includes('ሒሳብ') || query.includes('mathematics')) return reply('math');
+            if (query.includes('physics') || query.includes('ፊዚክስ')) return reply('physics');
+            if (query.includes('chemistry') || query.includes('ኬሚስትሪ')) return reply('chemistry');
+            if (query.includes('english') || query.includes('እንግሊዝኛ')) return reply('english');
+            if (query.includes('civics') || query.includes('ዜግነት') || query.includes('citizen')) return reply('civics');
+            if (query.includes('drawing') || query.includes('ስዕል') || query.includes('design')) return reply('drawing');
+            if (query.includes('hit') || query.includes('health information') || query.includes('health it')) return reply('hit');
+            if (query.includes('hmis') || query.includes('dhis2')) return reply('hmis');
+
+            // ---- FALLBACK ----
+            return isAm
+                ? `እኔ የማረጉ አራጋው AI ረዳት ነኝ። ስለሚከተሉት ርዕሶች ጥያቄ መጠየቅ ይችላሉ፦
+                <br><br>
+                💻 Computer, Software, Hardware, Operating System
+                <br>🗄️ Data, Information, Database, Programming
+                <br>🌐 Web Development, AI (Artificial Intelligence)
+                <br>🌍 Tourism, Lalibela, Geography, GPS, Places
+                <br>🔬 Science, Mathematics, Physics, Chemistry
+                <br>📖 English, Civics, Drawing
+                <br>🏥 Health Information Technology (HIT, HMIS, DHIS2)
+                <br>👤 About Mareg Lalibela & Services
+                <br><br>
+                እባክዎ ጥያቄዎን በተጨማሪ ዝርዝር ይጻፉ ወይም ከላይ ካሉት አንዱን ይምረጡ።
+                <br><br>
+                <strong>ለቀጥታ ግንኙነት፦</strong> <a href="tel:+251987781317">0987781317</a> (Telegram, WhatsApp, Gmail)`
+                : `I am Mareg Lalibela's AI Assistant. You can ask me about:
+                <br><br>
+                💻 Computer, Software, Hardware, Operating System
+                <br>🗄️ Data, Information, Database, Programming
+                <br>🌐 Web Development, AI (Artificial Intelligence)
+                <br>🌍 Tourism, Lalibela, Geography, GPS, Places
+                <br>🔬 Science, Mathematics, Physics, Chemistry
+                <br>📖 English, Civics, Drawing
+                <br>🏥 Health Information Technology (HIT, HMIS, DHIS2)
+                <br>👤 About Mareg Lalibela & Services
+                <br><br>
+                Please be more specific, or choose one of the topics above.
+                <br><br>
+                <strong>Direct contact:</strong> <a href="tel:+251987781317">+251987781317</a> (Telegram, WhatsApp, Gmail)`;
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
     </script>
 </body>
